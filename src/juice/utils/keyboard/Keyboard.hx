@@ -47,7 +47,7 @@ class Keyboard
 	public static inline var BACKSPACE:Int = 8;
 
 	public static inline var UP:Int = 38;
-	public static inline var DOWN:Int 40;
+	public static inline var DOWN:Int = 40;
 	public static inline var LEFT:Int = 37;
 	public static inline var RIGHT:Int = 39;
 }
