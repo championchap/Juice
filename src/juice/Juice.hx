@@ -10,16 +10,16 @@ class Juice
 	private var doc:Document;
 	private var canvas:CanvasElement;
 
-	public function new(){
-		setup();
+	public function new(width:Int, height:Int){
+		setup(width, height);
 	}
 
-	private function setup():Void {
+	private function setup(w:Int, h:Int):Void {
 		doc = Browser.window.document;
 		canvas = doc.createCanvasElement();
 
-		canvas.width = 720;
-		canvas.height = 405;
+		canvas.width = w;
+		canvas.height = h;
 
 		var cnx = canvas.getContext2d();
 
