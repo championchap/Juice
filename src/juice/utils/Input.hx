@@ -2,14 +2,24 @@ package juice.utils;
 
 // Javascript stuff 
 import js.html.CanvasElement;
-import js.html.EventListener;
+import js.html.Event;
 import js.Browser;
 
 class Input
 {
+
+	private var up:Array<Bool>;
+	private var down:Array<Bool>;
+	private var pressed:Array<Bool>;
+
 	public function new(c:CanvasElement){
+		up = new Array<Bool>();
+		down = new Array<Bool>();
+		pressed = new Array<Bool>();
+
 		// mouse stuff!
 		c.onclick = onClick;
+		c.oncontextmenu = onRightClick;
 
 		// keyboard stuff!
 		Browser.window.onkeydown = onKeyDown;
@@ -17,19 +27,27 @@ class Input
 		Browser.window.onkeypress = onKeyPress;
 	}
 
-	private function onKeyPress(e:EventListener):Void {
-		trace("KEY PRESS!!!!");
+	public function check():bool {
+
 	}
 
-	private function onKeyDown(e:EventListener):Void {
-		trace("Key Down!");
+	private function onKeyPress(e:Event):Void {
+		e.preventDefault();
 	}
 
-	private function onKeyUp(e:EventListener):Void {
-		trace("Key Up!");
+	private function onKeyDown(e:Event):Void {
+		e.preventDefault();
 	}
 
-	private function onClick(e:EventListener):Void {
-		trace("Clicked!");
+	private function onKeyUp(e:Event):Void {
+		e.preventDefault();
+	}
+
+	private function onClick(e:Event):Void {
+		e.preventDefault();
+	}
+
+	private function onRightClick(e:Event):Void {
+		e.preventDefault();
 	}
 }
