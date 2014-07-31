@@ -11,6 +11,7 @@ import haxe.Timer;
 
 // My Stuff
 import juice.utils.NumberTools;
+import juice.utils.Input;
 
 class Juice
 {
@@ -19,6 +20,8 @@ class Juice
 	private var canvas:CanvasElement;
 
 	private var ctx:CanvasRenderingContext2D;
+
+	private var input:Input;
 
 	public function new(width:Int, height:Int, fps:Int = 60){
 		setup(width, height, fps);
@@ -35,6 +38,8 @@ class Juice
 
 		doc.body.appendChild(canvas);
 
+		input = new Input(canvas);
+
 		// start the main loop loop
 		var timer:Timer = new Timer(Std.int((1 / fps)*1000));
 		timer.run = loop;
@@ -46,7 +51,7 @@ class Juice
 	}
 
 	private function update():Void {
-
+		// trace("poop");
 	}
 
 	private function render():Void {
