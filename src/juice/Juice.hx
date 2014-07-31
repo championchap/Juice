@@ -13,6 +13,7 @@ import haxe.Timer;
 import juice.utils.NumberTools;
 import juice.utils.Input;
 import juice.utils.keyboard.Keyboard;
+import juice.Scene;
 
 class Juice
 {
@@ -23,6 +24,9 @@ class Juice
 	private var ctx:CanvasRenderingContext2D;
 
 	private var input:Input;
+
+	private var currentScene:Scene;
+	private var nextScene:Scene;
 
 	public function new(width:Int, height:Int, fps:Int = 60){
 		setup(width, height, fps);
@@ -46,6 +50,11 @@ class Juice
 		timer.run = loop;
 	}
 
+	// swap the current scene out for a new one 
+	public function changeScene(next:Scene):Void {
+		nextScene = next;
+	}
+
 	private function loop():Void {
 		update();
 		render();
@@ -53,6 +62,10 @@ class Juice
 
 	private function update():Void {
 		// trace("poop");
+
+		if(this.currentScene != null){
+			currentScene.update();
+		}
 	}
 
 	private function render():Void {
@@ -60,6 +73,9 @@ class Juice
 		ctx.clearRect(0, 0, canvas.width, canvas.height);
 
 		// draw the new one 
+		if(this.currentScene != null){
+			currentScene.render();
+		}
 
 	}
 

@@ -11,19 +11,23 @@ class Scene
 		entities = new Array<Entity>();
 	}
 
-	public function add():Void {
-
+	public function add(ent:Entity):Void {
+		entities.push(ent);
 	}
 
-	public function remove():Void {
-
+	public function remove(ent:Entity):Void {
+		entities.remove(ent);
 	}
 
 	public function update():Void {
-
+		for(i in 0...entities.length) {
+			entities[i].update();
+		}
 	}
 
 	public function render():Void {
-
+		for(i in 0...entities.length) {
+			entities[i].render();
+		}
 	}
 }
