@@ -3,6 +3,11 @@
 Playing with the [Haxe](http://haxe.org) JavaScript target.
 
 
+## Demo ##
+
+__Coming soon!__
+
+
 ## Usage ##
 
 __Please don't use this yet! I'm still working on it, it probably doesn't work.__
