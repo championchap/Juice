@@ -28,11 +28,11 @@ class Juice
 	private var currentScene:Scene;
 	private var nextScene:Scene;
 
-	public function new(width:Int, height:Int, fps:Int = 60){
-		setup(width, height, fps);
+	public function new(width:Int, height:Int, scene:Scene, fps:Int = 60){
+		setup(width, height, scene, fps);
 	}
 
-	private function setup(w:Int, h:Int, fps:Int):Void {
+	private function setup(w:Int, h:Int, s:Scene, fps:Int):Void {
 		doc = Browser.window.document;
 		canvas = doc.createCanvasElement();
 
@@ -44,6 +44,8 @@ class Juice
 		doc.body.appendChild(canvas);
 
 		input = new Input(canvas);
+
+		currentScene = s;
 
 		// start the main loop loop
 		var timer:Timer = new Timer(Std.int((1 / fps)*1000));
