@@ -1,11 +1,16 @@
 package juice;
 
+// JavaScript Stuff
 import js.Browser;
 import js.html.CanvasElement;
 import js.html.Document;
 import js.html.CanvasRenderingContext2D;
 
+// Haxe Stuff
 import haxe.Timer;
+
+// My Stuff
+import juice.utils.NumberTools;
 
 class Juice
 {
@@ -28,21 +33,16 @@ class Juice
 
 		ctx = canvas.getContext2d();
 
-		ctx.fillStyle = "#FF0000";
-		ctx.fillRect(0, 0, canvas.width, canvas.height);
-
 		doc.body.appendChild(canvas);
 
+		// start the main loop loop
 		var timer:Timer = new Timer(Std.int((1 / fps)*1000));
 		timer.run = loop;
 	}
 
 	private function loop():Void {
-		
-	}
-
-	private function start():Void {
-
+		update();
+		render();
 	}
 
 	private function update():Void {
@@ -50,12 +50,11 @@ class Juice
 	}
 
 	private function render():Void {
+		// clear the previous frame 
+		ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+		// draw the new one 
 
 	}
-
-	private function end():Void {
-
-	}
-
 
 }
