@@ -12,6 +12,7 @@ import haxe.Timer;
 // My Stuff
 import juice.utils.NumberTools;
 import juice.utils.Input;
+import juice.utils.keyboard.Keyboard;
 
 class Juice
 {

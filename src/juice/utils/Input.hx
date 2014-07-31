@@ -4,18 +4,15 @@ package juice.utils;
 import js.html.CanvasElement;
 import js.html.Event;
 import js.Browser;
+import js.html.KeyboardEvent;
 
 class Input
 {
 
-	private var up:Array<Bool>;
-	private var down:Array<Bool>;
-	private var pressed:Array<Bool>;
+	private var keysDown:Array<Bool>;
 
 	public function new(c:CanvasElement){
-		up = new Array<Bool>();
-		down = new Array<Bool>();
-		pressed = new Array<Bool>();
+		keysDown = new Array<Bool>();
 
 		// mouse stuff!
 		c.onclick = onClick;
@@ -24,27 +21,25 @@ class Input
 		// keyboard stuff!
 		Browser.window.onkeydown = onKeyDown;
 		Browser.window.onkeyup = onKeyUp;
-		Browser.window.onkeypress = onKeyPress;
 	}
 
-	public function check():bool {
-
+	public function isDown(key:Int):Bool {
+		return keysDown[key];
 	}
 
-	private function onKeyPress(e:Event):Void {
-		e.preventDefault();
+	public function isUp(key:Int):Bool {
+		return keysDown[key];
 	}
 
-	private function onKeyDown(e:Event):Void {
-		e.preventDefault();
+	private function onKeyDown(e:KeyboardEvent):Void {
+		keysDown[e.keyCode] = true;
 	}
 
-	private function onKeyUp(e:Event):Void {
-		e.preventDefault();
+	private function onKeyUp(e:KeyboardEvent):Void {
+		keysDown[e.keyCode] = false;
 	}
 
 	private function onClick(e:Event):Void {
-		e.preventDefault();
 	}
 
 	private function onRightClick(e:Event):Void {
