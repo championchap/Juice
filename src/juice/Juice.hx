@@ -10,7 +10,7 @@ class Juice
 	private var doc:Document;
 	private var canvas:CanvasElement;
 
-	public function new(width:Int, height:Int){
+	public function new(width:Int, height:Int, fps:Int = 60){
 		setup(width, height);
 	}
 
