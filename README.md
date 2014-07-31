@@ -5,7 +5,7 @@ Playing with the [Haxe](http://haxe.org) JavaScript target.
 
 ## Demo ##
 
-__Coming soon!__
+Coming soon!
 
 
 ## Usage ##
