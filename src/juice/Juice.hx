@@ -18,7 +18,15 @@ class Juice
 		doc = Browser.window.document;
 		canvas = doc.createCanvasElement();
 
-		Browser.window.requestAnimationFrame( callback_ : js.html.RequestAnimationFrameCallback );
+		canvas.width = 720;
+		canvas.height = 405;
+
+		var cnx = canvas.getContext2d();
+
+		cnx.fillStyle = "#FF0000";
+		cnx.fillRect(0, 0, canvas.width, canvas.height);
+
+		doc.body.appendChild(canvas);
 	}
 
 	private function start():Void {
