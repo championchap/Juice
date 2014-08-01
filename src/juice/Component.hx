@@ -1,7 +1,11 @@
 package juice;
 
+import juice.Entity;
+
 class Component
 {
+
+	public var entity:Entity;
 
 	public var visible:Bool = true;
 	public var active:Bool = true;
@@ -15,7 +19,7 @@ class Component
 	}
 
 	public function end():Void {
-		
+		entity = null;
 	}
 
 	public function update():Void {

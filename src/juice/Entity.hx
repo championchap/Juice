@@ -2,14 +2,16 @@ package juice;
 
 import juice.utils.Point;
 import juice.Component;
+import juice.Scene;
 
 class Entity
 {
 
+	public var scene:Scene;
 	public var name:String;
-	public var position:Point;
-	public var visible:Bool; // should this be drawn or not?
-	public var active:Bool; // shoud this be updated or not?
+	public var position:Point = new Point(0, 0);
+	public var visible:Bool = true; // should this be drawn or not?
+	public var active:Bool = true; // shoud this be updated or not?
 	public var depth:Int;
 
 	// entities have their functionality extended through a list of components
@@ -23,11 +25,12 @@ class Entity
 	}
 
 	public function end():Void {
-		
+		scene = null;
 	}
 
 	public function add(component:Component):Void {
 		components.push(component);
+		component.entity = this;
 		component.start();
 	}
 

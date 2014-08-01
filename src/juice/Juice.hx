@@ -14,6 +14,8 @@ import juice.utils.NumberTools;
 import juice.utils.Input;
 import juice.utils.keyboard.Keyboard;
 import juice.Scene;
+import juice.JG;
+import juice.Assets;
 
 class Juice
 {
@@ -21,20 +23,26 @@ class Juice
 	private var doc:Document;
 	private var canvas:CanvasElement;
 
-	private var ctx:CanvasRenderingContext2D;
+	public var ctx:CanvasRenderingContext2D;
 
-	private var input:Input;
+	public var input:Input;
 
 	private var currentScene:Scene;
 	private var nextScene:Scene;
 
+	public var backgroundColour:String = "#336699";
+
 	public function new(width:Int, height:Int, scene:Scene, fps:Int = 60){
+		JG.game = this;
+
 		setup(width, height, scene, fps);
 	}
 
 	private function setup(w:Int, h:Int, s:Scene, fps:Int):Void {
 		doc = Browser.window.document;
 		canvas = doc.createCanvasElement();
+
+		canvas.id = "Juice";
 
 		canvas.width = w;
 		canvas.height = h;
@@ -80,9 +88,10 @@ class Juice
 	}
 
 	private function render():Void {
-		// clear the previous frame 
-		ctx.clearRect(0, 0, canvas.width, canvas.height);
-
+		// update the background 
+		ctx.fillStyle = backgroundColour;
+		ctx.fillRect(0,0,canvas.width,canvas.height);
+		
 		// draw the new one 
 		if(this.currentScene != null){
 			currentScene.render();
