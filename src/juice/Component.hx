@@ -1,7 +1,11 @@
 package juice;
 
+import juice.Entity;
+
 class Component
 {
+
+	public var entitiy:Entity;
 
 	public var visible:Bool = true;
 	public var active:Bool = true;

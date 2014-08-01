@@ -2,10 +2,12 @@ package juice;
 
 import juice.utils.Point;
 import juice.Component;
+import juice.Scene;
 
 class Entity
 {
 
+	public var scene:Scene;
 	public var name:String;
 	public var position:Point;
 	public var visible:Bool; // should this be drawn or not?
@@ -28,6 +30,7 @@ class Entity
 
 	public function add(component:Component):Void {
 		components.push(component);
+		component.entity = this;
 		component.start();
 	}
 

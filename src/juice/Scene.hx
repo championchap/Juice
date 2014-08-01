@@ -13,6 +13,7 @@ class Scene
 
 	public function add(ent:Entity):Void {
 		entities.push(ent);
+		ent.scene = this;
 		ent.start();
 	}
 
