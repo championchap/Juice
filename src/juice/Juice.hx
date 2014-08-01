@@ -55,8 +55,8 @@ class Juice
 		currentScene = s;
 
 		// start the main loop loop
-		var timer:Timer = new Timer(Std.int((1 / fps)*1000));
-		timer.run = loop;
+		//var timer:Timer = new Timer(Std.int((1 / fps)*1000));
+		//timer.run = loop;
 	}
 
 	// set the scene to change to 
