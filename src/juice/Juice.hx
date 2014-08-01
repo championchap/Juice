@@ -15,6 +15,7 @@ import juice.utils.Input;
 import juice.utils.keyboard.Keyboard;
 import juice.Scene;
 import juice.JG;
+import juice.Assets;
 
 class Juice
 {

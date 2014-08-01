@@ -13,6 +13,7 @@ class InGame extends Scene
 
 	public function new(){
 		super();
+
 		hero = new Entity();
 
 		hero.add(new Test());
@@ -21,6 +22,8 @@ class InGame extends Scene
 	}
 
 	override public function update():Void {
+		super.update();
+
 		if(JG.game.input.isDown(Keyboard.W)) {
 			hero.position.y --;
 		}
@@ -36,6 +39,10 @@ class InGame extends Scene
 		if(JG.game.input.isDown(Keyboard.D)) {
 			hero.position.x ++;
 		}
+	}
+
+	override public function render():Void {
+		super.render();
 	}
 
 }

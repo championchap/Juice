@@ -1,6 +1,7 @@
 package juice;
 
 import juice.Juice;
+import juice.Assets;
 
 class JG
 {
