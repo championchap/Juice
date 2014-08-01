@@ -73,10 +73,6 @@ class Juice
 			currentScene.start();
 		}
 
-		// update the background 
-		ctx.fillStyle = backgroundColour;
-		ctx.fillRect(0,0,canvas.width,canvas.height);
-
 		update();
 		render();
 	}
@@ -88,6 +84,10 @@ class Juice
 	}
 
 	private function render():Void {
+		// update the background 
+		ctx.fillStyle = backgroundColour;
+		ctx.fillRect(0,0,canvas.width,canvas.height);
+		
 		// draw the new one 
 		if(this.currentScene != null){
 			currentScene.render();
