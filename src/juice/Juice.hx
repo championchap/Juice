@@ -14,6 +14,7 @@ import juice.utils.NumberTools;
 import juice.utils.Input;
 import juice.utils.keyboard.Keyboard;
 import juice.Scene;
+import juice.JG;
 
 class Juice
 {
@@ -31,6 +32,8 @@ class Juice
 	public var backgroundColour:String = "#336699";
 
 	public function new(width:Int, height:Int, scene:Scene, fps:Int = 60){
+		JG.game = this;
+
 		setup(width, height, scene, fps);
 	}
 
