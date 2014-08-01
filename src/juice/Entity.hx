@@ -25,7 +25,7 @@ class Entity
 	}
 
 	public function end():Void {
-		
+		scene = null;
 	}
 
 	public function add(component:Component):Void {

@@ -19,7 +19,7 @@ class Component
 	}
 
 	public function end():Void {
-		
+		entitiy = null;
 	}
 
 	public function update():Void {
