@@ -28,6 +28,8 @@ class Juice
 	private var currentScene:Scene;
 	private var nextScene:Scene;
 
+	public var backgroundColour:String = "#336699";
+
 	public function new(width:Int, height:Int, scene:Scene, fps:Int = 60){
 		setup(width, height, scene, fps);
 	}
@@ -69,6 +71,10 @@ class Juice
 			currentScene.start();
 		}
 
+		// update the background 
+		ctx.fillStyle = backgroundColour;
+		ctx.fillRect(0,0,canvas.width,canvas.height);
+
 		update();
 		render();
 	}
@@ -80,9 +86,6 @@ class Juice
 	}
 
 	private function render():Void {
-		// clear the previous frame 
-		ctx.clearRect(0, 0, canvas.width, canvas.height);
-
 		// draw the new one 
 		if(this.currentScene != null){
 			currentScene.render();

@@ -6,3 +6,4 @@
 -cp src
 
 # dead code elimination (dce = no), remove this in the end 
+-dce no
