@@ -22,9 +22,9 @@ class Juice
 	private var doc:Document;
 	private var canvas:CanvasElement;
 
-	private var ctx:CanvasRenderingContext2D;
+	public var ctx:CanvasRenderingContext2D;
 
-	private var input:Input;
+	public var input:Input;
 
 	private var currentScene:Scene;
 	private var nextScene:Scene;
