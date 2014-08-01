@@ -38,6 +38,8 @@ class Juice
 		doc = Browser.window.document;
 		canvas = doc.createCanvasElement();
 
+		canvas.id = "Juice";
+
 		canvas.width = w;
 		canvas.height = h;
 

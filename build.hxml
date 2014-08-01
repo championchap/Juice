@@ -5,5 +5,5 @@
 -js bin/Juice.js
 -cp src
 
-# dead code elimination (dce = no), remove this in the end 
+# dead code elimination (-dce no), remove this in the end 
 -dce no
