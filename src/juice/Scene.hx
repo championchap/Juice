@@ -13,10 +13,12 @@ class Scene
 
 	public function add(ent:Entity):Void {
 		entities.push(ent);
+		ent.start();
 	}
 
 	public function remove(ent:Entity):Void {
 		entities.remove(ent);
+		ent.end();
 	}
 
 	private function sortByDepth(ents:Array<Entity>):Void {

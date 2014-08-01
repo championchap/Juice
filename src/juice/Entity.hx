@@ -13,25 +13,42 @@ class Entity
 	public var depth:Int;
 
 	// entities have their functionality extended through a list of components
-	private var components:Array<Component>;
+	private var components:Array<Component> = new Array<Component>();
 
 	public function new(){
-		components = new Array<Component>();
+	}
+
+	public function start():Void {
+
+	}
+
+	public function end():Void {
+		
 	}
 
 	public function add(component:Component):Void {
-		components.push(components);
+		components.push(component);
+		component.start();
 	}
 
 	public function remove(component:Component):Void {
-		components.remove(Component);
+		components.remove(component);
+		component.end();
 	}
 
 	public function update():Void {
-
+		for(i in 0...components.length) {
+			if(components[i].active) {
+				components[i].update();
+			}
+		}
 	}
 
 	public function render():Void {
-
+		for(i in 0...components.length) {
+			if(components[i].visible) {
+				components[i].render();
+			}
+		}
 	}
 }
