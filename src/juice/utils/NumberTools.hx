@@ -5,6 +5,10 @@ import flash.geom.Point;
 import flash.system.Capabilities;
 #end
 
+#if js
+import juice.utils.Point;
+#end
+
 /**
  *
  *	NumberTools
@@ -45,7 +49,6 @@ class NumberTools
 		}
 	}
 
-	#if flash
 	// Returns the distance between 2 points in the same coordinate space
 	public static function distanceBetween(firstPos:Point, secondPos:Point):Float {
 		var dx:Float = firstPos.x - secondPos.x;
@@ -53,7 +56,6 @@ class NumberTools
 
 		return vectorLength(dx, dy);
 	}
-	#end
 
 	// Convert a Float representing an angle in Degrees to a Float representing an angle in Radians
 	public static function degreesToRadians(deg:Float):Float {
@@ -258,7 +260,6 @@ class NumberTools
 		sequence = [1, 1];
 	}
 
-	#if flash
 	// Use this function to generate Sine Waves
 	public static function sineWave(startPos:Point, speed:Float, waveHeight:Int, waveLength:Int):Point {
 		var p:Point = startPos;
@@ -268,7 +269,6 @@ class NumberTools
 
 		return p;
 	}
-	#end
 
 	// Returns the Area of a Rectangle
 	public static function areaOfRectangle(width:Float, height:Float):Float {
