@@ -5,10 +5,9 @@ import juice.Entity;
 class Scene
 {
 
-	private var entities:Array<Entity>;
+	private var entities:Array<Entity> = new Array<Entity>();
 
 	public function new(){
-		entities = new Array<Entity>();
 	}
 
 	public function add(ent:Entity):Void {
