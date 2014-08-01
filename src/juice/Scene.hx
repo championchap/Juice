@@ -19,15 +19,27 @@ class Scene
 		entities.remove(ent);
 	}
 
+	private function sortByDepth(ents:Array<Entity>):Void {
+
+	}
+
 	public function update():Void {
+		// sort all the entities by order of their depth 
+		sortByDepth(entities);
+
+		// update all of the entities 
 		for(i in 0...entities.length) {
-			entities[i].update();
+			if(entities[i].active) {
+				entities[i].update();
+			}
 		}
 	}
 
 	public function render():Void {
 		for(i in 0...entities.length) {
-			entities[i].render();
+			if(entities[i].visible) {
+				entities[i].render();
+			}
 		}
 	}
 }
