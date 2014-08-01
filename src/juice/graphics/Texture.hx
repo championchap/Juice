@@ -10,9 +10,12 @@ class Texture
 {
 
 	public var image:Image;
-	public var bounds:Rectangle;
+	private var bounds:Rectangle;
 
-	public function new(img:Image, ?boundsRect:Rectangle){
+	public var width(get, null):Float;
+	public var height(get, null):Float;
+
+	public function new(img:Image, boundsRect:Rectangle = null){
 		image = img;
 
 		if(boundsRect == null){
@@ -20,6 +23,18 @@ class Texture
 		} else {
 			bounds = boundsRect;
 		}
+	}
+
+	public function subTexture(boundsRect:Rectangle):Texture {
+		return new Texture(image, boundsRect);
+	}
+
+	private function get_width():Float {
+		return bounds.width;
+	}
+
+	private function get_height():Float {
+		return bounds.height;
 	}
 
 }
