@@ -1,6 +1,7 @@
 package juice;
 
 import juice.utils.Point;
+import juice.Component;
 
 class Entity
 {
@@ -11,8 +12,19 @@ class Entity
 	public var active:Bool; // shoud this be updated or not?
 	public var depth:Int;
 
+	// entities have their functionality extended through a list of components
+	private var components:Array<Component>;
+
 	public function new(){
-		
+		components = new Array<Component>();
+	}
+
+	public function add(component:Component):Void {
+		components.push(components);
+	}
+
+	public function remove(component:Component):Void {
+		components.remove(Component);
 	}
 
 	public function update():Void {
