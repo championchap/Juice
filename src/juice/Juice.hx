@@ -52,19 +52,28 @@ class Juice
 		timer.run = loop;
 	}
 
-	// swap the current scene out for a new one 
+	// set the scene to change to 
 	public function changeScene(next:Scene):Void {
 		nextScene = next;
 	}
 
 	private function loop():Void {
+		// swap out the scenes if there is one waiting
+		if(nextScene != null) {
+			if(currentScene != null){
+				currentScene.end();
+			}
+
+			currentScene = nextScene;
+			nextScene = null;
+			currentScene.start();
+		}
+
 		update();
 		render();
 	}
 
 	private function update():Void {
-		// trace("poop");
-
 		if(this.currentScene != null){
 			currentScene.update();
 		}

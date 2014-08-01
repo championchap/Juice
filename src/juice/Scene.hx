@@ -25,6 +25,14 @@ class Scene
 
 	}
 
+	public function start():Void {
+		
+	}
+
+	public function end():Void {
+
+	}
+
 	public function update():Void {
 		// sort all the entities by order of their depth 
 		sortByDepth(entities);
