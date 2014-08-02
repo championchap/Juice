@@ -143,6 +143,9 @@ class Juice
 
 		update();
 		render();
+
+		// reset the input 
+		input.clearPressed();
 	}
 
 	private function update():Void {

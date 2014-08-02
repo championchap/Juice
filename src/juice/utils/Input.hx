@@ -17,6 +17,8 @@ class Input
 	private var canvasRef:CanvasElement;
 
 	private var keysDown:Array<Bool> = new Array<Bool>();
+	private var keysPressed:Array<Bool> = new Array<Bool>();
+
 	private var mousePos:Point = new Point();
 
 	public var mouse(get, null):Point;
@@ -43,8 +45,24 @@ class Input
 		return keysDown[key];
 	}
 
+	public function justPressed(key:Int):Bool {
+		if(keysPressed[key] != null) {
+			return keysPressed[key];
+		} else {
+			return false;
+		}
+		
+	}
+
+	public function clearPressed():Void {
+		for(i in 0...keysPressed.length) {
+			keysPressed[i] = false;
+		}
+	}
+
 	private function onKeyDown(e:KeyboardEvent):Void {
 		keysDown[e.keyCode] = true;
+		keysPressed[e.keyCode] = true;
 	}
 
 	private function onKeyUp(e:KeyboardEvent):Void {

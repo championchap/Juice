@@ -49,7 +49,7 @@ class InGame extends Scene
 			hero.position.x ++;
 		}
 
-		if(JG.game.input.isDown(Keyboard.F)) {
+		if(JG.game.input.justPressed(Keyboard.F)) {
 			JG.game.toggleFullScreen();
 		}
 
