@@ -1,7 +1,9 @@
 package juice.components;
 
+// my stuff 
 import juice.Component;
 import juice.graphics.Texture;
+import juice.graphics.Draw;
 
 class Image extends Component
 {
@@ -18,7 +20,7 @@ class Image extends Component
 		super.render();
 
 		if(tex != null) {
-			juice.JG.game.ctx.drawImage(
+			Draw.drawImage(
 				tex.image, 
 				tex.bounds.x,
 				tex.bounds.y, 

@@ -1,7 +1,9 @@
 package juice.components;
 
+// my stuff 
 import juice.Component;
-import juice.JG;
+import juice.graphics.Draw;
+import juice.utils.Rectangle;
 
 class Test extends Component
 {
@@ -10,7 +12,8 @@ class Test extends Component
 	}
 
 	override public function render():Void {
-		JG.game.ctx.fillStyle = "#ffffff";
-		JG.game.ctx.fillRect(this.entity.position.x, this.entity.position.y, 32, 48);
+		super.render();
+
+		Draw.drawFilledRect(new Rectangle(this.entity.position.x, this.entity.position.y, 32, 64), "#333333");
 	}
 }

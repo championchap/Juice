@@ -1,5 +1,6 @@
 package ;
 
+// my stuff 
 import juice.Scene;
 import juice.Entity;
 import juice.components.Test;
@@ -19,6 +20,7 @@ class InGame extends Scene
 		hero = new Entity();
 
 		hero.add(new juice.components.Image(juice.Assets.textures.get("Pikachu")));
+		hero.add(new Test());
 
 		this.add(hero);
 	}
@@ -41,12 +43,6 @@ class InGame extends Scene
 		if(JG.game.input.isDown(Keyboard.D)) {
 			hero.position.x ++;
 		}
-	}
-
-	override public function render():Void {
-		super.render();
-
-		JG.game.ctx.drawImage(juice.Assets.textures.get("Pikachu").image, 10, 10);
 	}
 
 }
