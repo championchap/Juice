@@ -71,6 +71,7 @@ class Juice
 	}
 
 	private function onResize(e:Event):Void {
+		// we need to do this to be sure that the mouse position is recorded correctly
 		clientRect = canvas.getBoundingClientRect();
 	}
 

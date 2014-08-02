@@ -4,16 +4,21 @@ package juice.components;
 import juice.Component;
 import juice.graphics.Texture;
 import juice.graphics.Draw;
+import juice.utils.Point;
 
 class Image extends Component
 {
 
 	private var tex:Texture;
 
-	public function new(texture:Texture){
+	public var position:Point;
+
+	public function new(texture:Texture, xPos:Float = 0, yPos:Float = 0){
 		super();
 
 		tex = texture;
+
+		position = new Point(xPos, yPos);
 	}
 
 	override public function render():Void {
@@ -26,8 +31,8 @@ class Image extends Component
 				tex.bounds.y, 
 				tex.width,
 				tex.height,
-				this.entity.position.x,
-				this.entity.position.y,
+				this.entity.position.x + position.x,
+				this.entity.position.y + position.y,
 				tex.width,
 				tex.height
 			);
