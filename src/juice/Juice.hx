@@ -88,6 +88,8 @@ class Juice
 	}
 
 	private function render():Void {
+		ctx.clearRect(0, 0, canvas.width, canvas.height);
+
 		// update the background 
 		ctx.fillStyle = backgroundColour;
 		ctx.fillRect(0,0,canvas.width,canvas.height);

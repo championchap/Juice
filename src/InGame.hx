@@ -20,7 +20,6 @@ class InGame extends Scene
 		hero = new Entity();
 
 		hero.add(new juice.components.Image(juice.Assets.textures.get("Pikachu")));
-		hero.add(new Test());
 
 		this.add(hero);
 	}
