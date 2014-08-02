@@ -84,13 +84,13 @@ class Input
 		// get the mouse position relative to the canvas 
 
 		if(e.offsetX != null){
-			mousePos.x = e.offsetX - JG.game.clientRect.left;
-			mousePos.y = e.offsetY - JG.game.clientRect.top;
+			mousePos.x = (e.offsetX / JG.game.scale) - JG.game.clientRect.left;
+			mousePos.y = (e.offsetY / JG.game.scale) - JG.game.clientRect.top;
 		}
 
 		if(e.layerX != null){
-			mousePos.x = e.layerX - JG.game.clientRect.left;
-			mousePos.y = e.layerY - JG.game.clientRect.top;
+			mousePos.x = (e.layerX / JG.game.scale) - JG.game.clientRect.left;
+			mousePos.y = (e.layerY / JG.game.scale) - JG.game.clientRect.top;
 		}
 
 	}

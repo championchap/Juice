@@ -36,6 +36,8 @@ class Juice
 
 	public var fullScreen:Bool = false;
 
+	public var scale:Float = 1;
+
 	private var currentScene:Scene;
 	private var nextScene:Scene;
 
@@ -116,12 +118,16 @@ class Juice
 			canvasScaled.style.top = "0px";
 			canvasScaled.style.marginTop = "0px";
 
+			scale = canvasScaled.width / canvas.width;
+
 			fullScreen = true;
 		} else {
 			canvasScaled.style.position = "relative";
 
 			canvasScaled.width = canvas.width;
 			canvasScaled.height = canvas.height;
+
+			scale = 1;
 
 			fullScreen = false;
 		}
