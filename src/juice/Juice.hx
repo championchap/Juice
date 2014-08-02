@@ -73,6 +73,8 @@ class Juice
 			doc.body.appendChild(canvas);
 			doc.body.appendChild(canvasScaled);
 
+			ctxScaled.imageSmoothingEnabled = false;
+
 			canvas.style.display = "none";
 
 			clientRect = canvasScaled.getBoundingClientRect();
