@@ -29,6 +29,9 @@ class Juice
 
 	public var ctx:CanvasRenderingContext2D;
 
+	public var canvasScaled:CanvasElement;
+	public var ctxScaled:CanvasRenderingContext2D;
+
 	public var input:Input;
 
 	public var fullScreen:Bool = false;
@@ -49,11 +52,15 @@ class Juice
 	private function setup(w:Int, h:Int, s:Scene, fps:Int):Void {
 		doc = Browser.window.document;
 		canvas = doc.createCanvasElement();
+		canvasScaled = doc.createCanvasElement();
 
-		canvas.id = "Juice";
+		canvasScaled.id = "Juice";
 
 		canvas.width = w;
 		canvas.height = h;
+
+		canvasScaled.width = w;
+		canvasScaled.height = h;
 
 		windowSize = new Rectangle(0, 0, doc.body.clientWidth, doc.body.clientHeight);
 
@@ -61,12 +68,16 @@ class Juice
 
 		doc.body.onload = function (e:Event) {
 			ctx = canvas.getContext2d();
+			ctxScaled = canvasScaled.getContext2d();
 
 			doc.body.appendChild(canvas);
+			doc.body.appendChild(canvasScaled);
 
-			clientRect = canvas.getBoundingClientRect();
+			canvas.style.display = "none";
 
-			input = new Input(canvas);
+			clientRect = canvasScaled.getBoundingClientRect();
+
+			input = new Input(canvasScaled);
 
 			currentScene = s;
 			currentScene.start();
@@ -83,7 +94,7 @@ class Juice
 
 	private function resize():Void {
 		// we need to do this to be sure that the mouse position is recorded correctly
-		clientRect = canvas.getBoundingClientRect();
+		clientRect = canvasScaled.getBoundingClientRect();
 
 		windowSize = new Rectangle(0, 0, doc.body.clientWidth, doc.body.clientHeight);
 	}
@@ -95,20 +106,20 @@ class Juice
 
 	public function toggleFullScreen():Void {
 		if(fullScreen == false) {
-			canvas.width = Std.int(windowSize.width);
-			canvas.height = Std.int(windowSize.height);
+			canvasScaled.width = Std.int(windowSize.width);
+			canvasScaled.height = Std.int(windowSize.height);
 
-			canvas.style.position = "absolute";
-			canvas.style.left = "0px";
-			canvas.style.top = "0px";
-			canvas.style.marginTop = "0px";
+			canvasScaled.style.position = "absolute";
+			canvasScaled.style.left = "0px";
+			canvasScaled.style.top = "0px";
+			canvasScaled.style.marginTop = "0px";
 
 			fullScreen = true;
 		} else {
-			canvas.style.position = "relative";
+			canvasScaled.style.position = "relative";
 
-			canvas.width = 720;
-			canvas.height = 405;
+			canvasScaled.width = canvas.width;
+			canvasScaled.height = canvas.height;
 
 			fullScreen = false;
 		}
@@ -149,6 +160,8 @@ class Juice
 		if(this.currentScene != null){
 			currentScene.render();
 		}
+
+		ctxScaled.drawImage(canvas, 0, 0, canvas.width, canvas.height, 0, 0, canvasScaled.width, canvasScaled.height);
 
 	}
 
