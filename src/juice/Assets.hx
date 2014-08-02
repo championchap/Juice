@@ -49,19 +49,22 @@ class Assets
 		var tex:Texture;
 		var name:String;
 
-		var img:Image;
-
 		for(i in 0...texturesToLoad.length) {
-			img = new Image();
+			// I don't like making this var here
+			// but outside of the loop all the textures get set to the same image
+			var img:Image = new Image();
+
 			img.src = texturesToLoad[i].url;
 
 			img.onload = function (e:Event) {
+
 				tex = new Texture(img);
 				name = texturesToLoad[i].name;
 
 				textures.set(name, tex);
 
 				updateProgress();
+
 			}
 		}
 	}
