@@ -61,8 +61,11 @@ class Input
 	}
 
 	private function onKeyDown(e:KeyboardEvent):Void {
+		if(keysDown[e.keyCode] == false) {
+			keysPressed[e.keyCode] = true;
+		}
+		
 		keysDown[e.keyCode] = true;
-		keysPressed[e.keyCode] = true;
 	}
 
 	private function onKeyUp(e:KeyboardEvent):Void {
