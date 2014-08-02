@@ -10,7 +10,7 @@ class Texture
 {
 
 	public var image:Image;
-	private var bounds:Rectangle;
+	public var bounds:Rectangle;
 
 	public var width(get, null):Float;
 	public var height(get, null):Float;
