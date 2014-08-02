@@ -5,7 +5,7 @@ Playing with the [Haxe](http://haxe.org) JavaScript target.
 
 ## Demo ##
 
-Coming soon!
+Coming soon! Demo projects will be available under a new repo. 
 
 
 ## Usage ##
