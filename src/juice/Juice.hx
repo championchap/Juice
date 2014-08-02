@@ -5,6 +5,7 @@ import js.Browser;
 import js.html.CanvasElement;
 import js.html.Document;
 import js.html.CanvasRenderingContext2D;
+import js.html.Event;
 
 // Haxe Stuff
 import haxe.Timer;
@@ -47,18 +48,20 @@ class Juice
 		canvas.width = w;
 		canvas.height = h;
 
-		ctx = canvas.getContext2d();
+		doc.body.onload = function (e:Event) {
+			ctx = canvas.getContext2d();
 
-		doc.body.appendChild(canvas);
+			doc.body.appendChild(canvas);
 
-		input = new Input(canvas);
+			input = new Input(canvas);
 
-		currentScene = s;
-		currentScene.start();
+			currentScene = s;
+			currentScene.start();
 
-		// start the main loop loop
-		var timer:Timer = new Timer(Std.int((1 / fps)*1000));
-		timer.run = loop;
+			// start the main loop loop
+			var timer:Timer = new Timer(Std.int((1 / fps)*1000));
+			timer.run = loop;
+		}
 	}
 
 	// set the scene to change to 

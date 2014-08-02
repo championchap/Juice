@@ -2,6 +2,7 @@ package juice;
 
 // javascript stuff
 import js.html.Image;
+import js.html.Event;
 
 // my stuff
 import juice.graphics.Texture;
@@ -15,24 +16,30 @@ class Assets
 	// assets that have not yet been loaded 
 	private static var texturesToLoad:Array<AssetData> = new Array<AssetData>();
 
+	public static var percent:Int = 0; // how much has loaded?
+
+	private static var toLoad:Int = 0; // how many files are there to load?
+	private static var loaded:Int = 0; // how many files have we loaded so far?
+
 	public function new(){
 		
 	}
 
 	public static function addTexture(name:String, url:String):Void {
 		texturesToLoad.push(new AssetData(name, url));
+		toLoad ++;
 	}
 
 	public static function addSFX():Void {
-
+		toLoad ++;
 	}
 
 	public static function addMusic():Void {
-		
+		toLoad ++;
 	}
 
 	public static function addData():Void {
-		
+		toLoad ++;
 	}
 
 	// call this once the assets you want to load have been added 
@@ -44,17 +51,25 @@ class Assets
 
 		var img:Image;
 
-		for(i in texturesToLoad.length...0) {
+		for(i in 0...texturesToLoad.length) {
 			img = new Image();
 			img.src = texturesToLoad[i].url;
 
-			tex = new Texture(img);
-			name = texturesToLoad[i].name;
+			img.onload = function (e:Event) {
+				tex = new Texture(img);
+				name = texturesToLoad[i].name;
 
-			textures.set(name, tex);
+				textures.set(name, tex);
 
-			texturesToLoad.pop();
+				updateProgress();
+			}
 		}
+	}
+
+	private static function updateProgress():Void {
+		loaded ++;
+
+		percent = Std.int((loaded / toLoad) * 100);
 	}
 }
 

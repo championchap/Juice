@@ -24,6 +24,8 @@ class InGame extends Scene
 		hero.add(new juice.components.Image(juice.Assets.textures.get("Pikachu")));
 
 		this.add(hero);
+
+		trace(juice.Assets.textures);
 	}
 
 	override public function update():Void {
