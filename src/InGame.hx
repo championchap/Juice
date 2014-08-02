@@ -14,8 +14,10 @@ class InGame extends Scene
 
 	public function new(){
 		super();
+	}
 
-		juice.Assets.addTexture("Pikachu", "sprite.png");
+	override public function start():Void {
+		super.start();
 
 		hero = new Entity();
 

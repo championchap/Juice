@@ -54,6 +54,7 @@ class Juice
 		input = new Input(canvas);
 
 		currentScene = s;
+		currentScene.start();
 
 		// start the main loop loop
 		var timer:Timer = new Timer(Std.int((1 / fps)*1000));
