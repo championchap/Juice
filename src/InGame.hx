@@ -6,6 +6,9 @@ import juice.Entity;
 import juice.components.Test;
 import juice.JG;
 import juice.utils.keyboard.Keyboard;
+import juice.graphics.Texture;
+import juice.Assets;
+import juice.components.Image;
 
 class InGame extends Scene
 {
@@ -21,7 +24,8 @@ class InGame extends Scene
 
 		hero = new Entity();
 
-		hero.add(new juice.components.Image(juice.Assets.textures.get("Pikachu"), -50, -50));
+		var heroTex:Texture = Assets.textures.get("Pikachu");
+		hero.add(new Image(heroTex, -heroTex.width / 2, -heroTex.height / 2));
 
 		this.add(hero);
 	}
@@ -43,6 +47,10 @@ class InGame extends Scene
 
 		if(JG.game.input.isDown(Keyboard.D)) {
 			hero.position.x ++;
+		}
+
+		if(JG.game.input.isDown(Keyboard.F)) {
+			JG.game.toggleFullScreen();
 		}
 
 		hero.position.x = JG.game.input.mouse.x;

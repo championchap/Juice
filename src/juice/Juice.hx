@@ -18,6 +18,7 @@ import juice.utils.keyboard.Keyboard;
 import juice.Scene;
 import juice.JG;
 import juice.Assets;
+import juice.utils.Rectangle;
 
 class Juice
 {
@@ -30,8 +31,12 @@ class Juice
 
 	public var input:Input;
 
+	public var fullScreen:Bool = false;
+
 	private var currentScene:Scene;
 	private var nextScene:Scene;
+
+	private var windowSize:Rectangle;
 
 	public var backgroundColour:String = "#336699";
 
@@ -49,6 +54,8 @@ class Juice
 
 		canvas.width = w;
 		canvas.height = h;
+
+		windowSize = new Rectangle(0, 0, doc.body.clientWidth, doc.body.clientHeight);
 
 		Browser.window.onresize = onResize;
 
@@ -71,13 +78,42 @@ class Juice
 	}
 
 	private function onResize(e:Event):Void {
+		resize();
+	}
+
+	private function resize():Void {
 		// we need to do this to be sure that the mouse position is recorded correctly
 		clientRect = canvas.getBoundingClientRect();
+
+		windowSize = new Rectangle(0, 0, doc.body.clientWidth, doc.body.clientHeight);
 	}
 
 	// set the scene to change to 
 	public function changeScene(next:Scene):Void {
 		nextScene = next;
+	}
+
+	public function toggleFullScreen():Void {
+		if(fullScreen == false) {
+			canvas.width = Std.int(windowSize.width);
+			canvas.height = Std.int(windowSize.height);
+
+			canvas.style.position = "absolute";
+			canvas.style.left = "0px";
+			canvas.style.top = "0px";
+			canvas.style.marginTop = "0px";
+
+			fullScreen = true;
+		} else {
+			canvas.style.position = "relative";
+
+			canvas.width = 720;
+			canvas.height = 405;
+
+			fullScreen = false;
+		}
+
+		resize();
 	}
 
 	private function loop():Void {
