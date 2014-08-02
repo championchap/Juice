@@ -8,13 +8,13 @@ import juice.graphics.Texture;
 class Assets
 {
 
-	public var textures:Map<String, Texture> = new Map<String, Texture>();
+	public static var textures:Map<String, Texture> = new Map<String, Texture>();
 
 	public function new(){
 		
 	}
 
-	public function addTexture(name:String, url:String):Void {
+	public static function addTexture(name:String, url:String):Void {
 		var img:Image = new Image();
 		img.src = url;
 

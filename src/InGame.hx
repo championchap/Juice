@@ -14,6 +14,8 @@ class InGame extends Scene
 	public function new(){
 		super();
 
+		juice.Assets.addTexture("Pikachu", "sprite.png");
+
 		hero = new Entity();
 
 		hero.add(new Test());
@@ -43,6 +45,8 @@ class InGame extends Scene
 
 	override public function render():Void {
 		super.render();
+
+		JG.game.ctx.drawImage(juice.Assets.textures.get("Pikachu").image, 10, 10);
 	}
 
 }
