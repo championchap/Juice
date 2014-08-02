@@ -163,7 +163,36 @@ class Juice
 			currentScene.render();
 		}
 
-		ctxScaled.drawImage(canvas, 0, 0, canvas.width, canvas.height, 0, 0, canvasScaled.width, canvasScaled.height);
+		// draw the scene to the scaled canvas
+		if(fullScreen){
+			ctxScaled.fillStyle = "#000000";
+			ctxScaled.fillRect(0, 0, canvasScaled.width, canvasScaled.height);
+
+			ctxScaled.drawImage(
+				canvas, 
+				0, 
+				0, 
+				canvas.width, 
+				canvas.height, 
+				0, 
+				(canvasScaled.height - (canvas.height * (canvasScaled.width / canvas.width))) / 2, 
+				canvasScaled.width, 
+				canvas.height * (canvasScaled.width / canvas.width)
+			);
+		} else {
+			ctxScaled.drawImage(
+				canvas, 
+				0, 
+				0, 
+				canvas.width, 
+				canvas.height, 
+				0, 
+				0, 
+				canvas.width, 
+				canvas.height
+			);
+		}
+		
 
 	}
 
