@@ -24,8 +24,6 @@ class InGame extends Scene
 		hero.add(new juice.components.Image(juice.Assets.textures.get("Pikachu")));
 
 		this.add(hero);
-
-		trace(juice.Assets.textures);
 	}
 
 	override public function update():Void {
@@ -46,6 +44,10 @@ class InGame extends Scene
 		if(JG.game.input.isDown(Keyboard.D)) {
 			hero.position.x ++;
 		}
+
+		hero.position.x = JG.game.input.mouse.x;
+		hero.position.y = JG.game.input.mouse.y;
+
 	}
 
 }

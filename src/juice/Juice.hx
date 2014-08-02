@@ -6,6 +6,7 @@ import js.html.CanvasElement;
 import js.html.Document;
 import js.html.CanvasRenderingContext2D;
 import js.html.Event;
+import js.html.ClientRect;
 
 // Haxe Stuff
 import haxe.Timer;
@@ -23,6 +24,7 @@ class Juice
 
 	private var doc:Document;
 	private var canvas:CanvasElement;
+	public var clientRect:ClientRect;
 
 	public var ctx:CanvasRenderingContext2D;
 
@@ -48,10 +50,14 @@ class Juice
 		canvas.width = w;
 		canvas.height = h;
 
+		Browser.window.onresize = onResize;
+
 		doc.body.onload = function (e:Event) {
 			ctx = canvas.getContext2d();
 
 			doc.body.appendChild(canvas);
+
+			clientRect = canvas.getBoundingClientRect();
 
 			input = new Input(canvas);
 
@@ -62,6 +68,10 @@ class Juice
 			var timer:Timer = new Timer(Std.int((1 / fps)*1000));
 			timer.run = loop;
 		}
+	}
+
+	private function onResize(e:Event):Void {
+		clientRect = canvas.getBoundingClientRect();
 	}
 
 	// set the scene to change to 
