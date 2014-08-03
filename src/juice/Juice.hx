@@ -29,7 +29,7 @@ class Juice
 
 	public var ctx:CanvasRenderingContext2D;
 
-	public var canvasScaled:CanvasElement;
+	private var canvasScaled:CanvasElement;
 	public var ctxScaled:CanvasRenderingContext2D;
 
 	private var currentScene:Scene;
