@@ -13,7 +13,7 @@ import juice.Scene;
 class JG
 {
 
-	public static var game:Juice;
+	public static var game:Juice; // I need it to get to toggleFullScreen at the moment 
 	public static var input:Input;
 
 	public static var fullScreen:Bool = false;

@@ -4,22 +4,15 @@ package juice;
 import js.Browser;
 import js.html.CanvasElement;
 import js.html.Document;
-import js.html.CanvasRenderingContext2D;
 import js.html.Event;
-import js.html.ClientRect;
 
 // Haxe Stuff
 import haxe.Timer;
 
 // My Stuff
-import juice.utils.NumberTools;
 import juice.utils.Input;
-import juice.utils.keyboard.Keyboard;
-import juice.Scene;
 import juice.JG;
-import juice.Assets;
 import juice.utils.Rectangle;
-import juice.graphics.Draw;
 
 class Juice
 {
