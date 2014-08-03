@@ -42,8 +42,6 @@ class Juice
 
 	private var windowSize:Rectangle;
 
-	public var backgroundColour:String = "#336699";
-
 	public function new(width:Int, height:Int, scene:Scene, fps:Int = 60){
 		JG.game = this;
 
@@ -190,7 +188,7 @@ class Juice
 		ctx.clearRect(0, 0, canvas.width, canvas.height);
 
 		// update the background 
-		ctx.fillStyle = backgroundColour;
+		ctx.fillStyle = JG.backgroundColour;
 		ctx.fillRect(0,0,canvas.width,canvas.height);
 		
 		// draw the new one 

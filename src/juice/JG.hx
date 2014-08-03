@@ -11,6 +11,8 @@ class JG
 
 	public static var scale:Float = 1;
 
+	public static var backgroundColour:String = "#336699";
+
 	public function new(){
 		
 	}
