@@ -8,6 +8,7 @@ import js.html.CanvasRenderingContext2D;
 import juice.Juice;
 import juice.utils.Input;
 import juice.utils.Rectangle;
+import juice.Scene;
 
 class JG
 {
@@ -29,6 +30,9 @@ class JG
 	// Canvas Contexts
 	public static var canvasCTX:CanvasRenderingContext2D;
 	public static var canvasScaledCTX:CanvasRenderingContext2D;
+
+	public static var currentScene:Scene;
+	public static var nextScene:Scene;
 
 	public function new(){
 		

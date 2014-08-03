@@ -25,18 +25,14 @@ class Juice
 {
 
 	private var doc:Document;
+
 	private var canvas:CanvasElement;
-
 	private var canvasScaled:CanvasElement;
-
-	private var currentScene:Scene;
-	private var nextScene:Scene;
 
 	private var windowSize:Rectangle;
 
 	public function new(width:Int, height:Int, scene:Scene, fps:Int = 60){
 		JG.game = this;
-
 		setup(width, height, scene, fps);
 	}
 
@@ -73,8 +69,8 @@ class Juice
 
 			JG.input = new Input(canvasScaled);
 
-			currentScene = s;
-			currentScene.start();
+			JG.currentScene = s;
+			JG.currentScene.start();
 
 			// start the main loop loop
 			var timer:Timer = new Timer(Std.int((1 / fps)*1000));
@@ -91,11 +87,6 @@ class Juice
 		JG.clientRect = canvasScaled.getBoundingClientRect();
 
 		windowSize = new Rectangle(0, 0, doc.body.clientWidth, doc.body.clientHeight);
-	}
-
-	// set the scene to change to 
-	public function changeScene(next:Scene):Void {
-		nextScene = next;
 	}
 
 	public function toggleFullScreen():Void {
@@ -153,14 +144,14 @@ class Juice
 
 	private function loop():Void {
 		// swap out the scenes if there is one waiting
-		if(nextScene != null) {
-			if(currentScene != null){
-				currentScene.end();
+		if(JG.nextScene != null) {
+			if(JG.currentScene != null){
+				JG.currentScene.end();
 			}
 
-			currentScene = nextScene;
-			nextScene = null;
-			currentScene.start();
+			JG.currentScene = JG.nextScene;
+			JG.nextScene = null;
+			JG.currentScene.start();
 		}
 
 		update();
@@ -171,8 +162,8 @@ class Juice
 	}
 
 	private function update():Void {
-		if(this.currentScene != null){
-			currentScene.update();
+		if(JG.currentScene != null){
+			JG.currentScene.update();
 		}
 	}
 
@@ -184,8 +175,8 @@ class Juice
 		JG.canvasCTX.fillRect(0,0,canvas.width,canvas.height);
 		
 		// draw the new one 
-		if(this.currentScene != null){
-			currentScene.render();
+		if(JG.currentScene != null){
+			JG.currentScene.render();
 		}
 
 		if(JG.fullScreen) {

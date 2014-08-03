@@ -29,7 +29,7 @@ class Loading extends Scene
 		if(Assets.percent < 100){
 			// trace(Assets.percent + "%");
 		} else {
-			JG.game.changeScene(new InGame());
+			JG.nextScene = new InGame();
 		}
 	}
 }
