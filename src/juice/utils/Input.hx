@@ -26,6 +26,16 @@ class Input
 	public function new(c:CanvasElement){
 		canvasRef = c;
 
+		// populate the arrays with default values
+		var i:Int = 0;
+
+		while(i < 256) {
+			keysDown[i] = false;
+			keysPressed[i] = false;
+
+			i++;
+		}
+
 		// mouse stuff!
 		c.onclick = onClick;
 		c.oncontextmenu = onRightClick;
@@ -46,12 +56,7 @@ class Input
 	}
 
 	public function justPressed(key:Int):Bool {
-		if(keysPressed[key] != null) {
-			return keysPressed[key];
-		} else {
-			return false;
-		}
-		
+		return keysPressed[key];
 	}
 
 	public function clearPressed():Void {
@@ -86,15 +91,23 @@ class Input
 	private function onMouseMove(e:MouseEvent):Void {
 		// get the mouse position relative to the canvas 
 
-		if(e.offsetX != null){
-			mousePos.x = (e.offsetX / JG.game.scale) - JG.game.clientRect.left;
-			mousePos.y = (e.offsetY / JG.game.scale) - JG.game.clientRect.top;
+		var mx:Float = 0;
+		var my:Float = 0;
+
+		if(e.offsetX != null) {
+			mx = e.offsetX;
+			my = e.offsetY;
 		}
 
-		if(e.layerX != null){
-			mousePos.x = (e.layerX / JG.game.scale) - JG.game.clientRect.left;
-			mousePos.y = (e.layerY / JG.game.scale) - JG.game.clientRect.top;
+		if(e.layerX != null) {
+			mx = e.layerX;
+			my = e.layerY;
 		}
+
+		// trace("scale: " + JG.game.scale);
+
+		mousePos.x = (mx - (JG.game.clientRect.left + JG.game.viewPort.x)) * JG.game.scale;
+		mousePos.y = (my - (JG.game.clientRect.top + JG.game.viewPort.y)) * JG.game.scale;
 
 	}
 

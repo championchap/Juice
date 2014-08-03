@@ -32,6 +32,8 @@ class Juice
 	public var canvasScaled:CanvasElement;
 	public var ctxScaled:CanvasRenderingContext2D;
 
+	public var viewPort:Rectangle;
+
 	public var input:Input;
 
 	public var fullScreen:Bool = false;
@@ -65,6 +67,7 @@ class Juice
 		canvasScaled.height = h;
 
 		windowSize = new Rectangle(0, 0, doc.body.clientWidth, doc.body.clientHeight);
+		viewPort = new Rectangle(0, 0, canvas.width, canvas.height);
 
 		Browser.window.onresize = onResize;
 
@@ -118,7 +121,31 @@ class Juice
 			canvasScaled.style.top = "0px";
 			canvasScaled.style.marginTop = "0px";
 
-			scale = canvasScaled.width / canvas.width;
+			var viewWidth:Float = 0;
+			var viewHeight:Float = 0;
+
+			var offX:Float = 0;
+			var offY:Float = 0;
+
+			if((canvasScaled.width / canvasScaled.height) > (canvas.width / canvas.height)) {
+				viewWidth = canvasScaled.height * (canvas.width / canvas.height);
+				viewHeight = canvasScaled.height;
+
+				offX = (canvasScaled.width - viewWidth) / 2;
+				offY = 0;
+
+				scale = canvas.height / canvasScaled.height;
+			} else {
+				viewWidth = canvasScaled.width;
+				viewHeight = canvasScaled.width * (canvas.height / canvas.width);
+
+				offX = 0;
+				offY = (canvasScaled.height - viewHeight) / 2;
+
+				scale = canvas.width / canvasScaled.width;
+			}
+
+			viewPort = new Rectangle(offX, offY, viewWidth, viewHeight);
 
 			fullScreen = true;
 		} else {
@@ -126,6 +153,8 @@ class Juice
 
 			canvasScaled.width = canvas.width;
 			canvasScaled.height = canvas.height;
+
+			viewPort = new Rectangle(0, 0, canvas.width, canvas.height);
 
 			scale = 1;
 
@@ -173,7 +202,7 @@ class Juice
 		}
 
 		// draw the scene to the scaled canvas
-		if(fullScreen){
+		/*if(fullScreen){
 			ctxScaled.fillStyle = "#000000";
 			ctxScaled.fillRect(0, 0, canvasScaled.width, canvasScaled.height);
 
@@ -200,8 +229,25 @@ class Juice
 				canvas.width, 
 				canvas.height
 			);
+		} */
+
+		if(fullScreen) {
+			// fill the borders in black 
+			ctxScaled.fillStyle = "#000000";
+			ctxScaled.fillRect(0, 0, canvasScaled.width, canvasScaled.height);
 		}
 		
+		ctxScaled.drawImage(
+			canvas, 
+			0, 
+			0, 
+			canvas.width, 
+			canvas.height, 
+			viewPort.x, 
+			viewPort.y, 
+			viewPort.width, 
+			viewPort.height
+		);
 
 	}
 
