@@ -33,28 +33,28 @@ class InGame extends Scene
 	override public function update():Void {
 		super.update();
 
-		if(JG.game.input.isDown(Keyboard.W)) {
+		if(JG.input.isDown(Keyboard.W)) {
 			hero.position.y --;
 		}
 
-		if(JG.game.input.isDown(Keyboard.A)) {
+		if(JG.input.isDown(Keyboard.A)) {
 			hero.position.x --;
 		}
 
-		if(JG.game.input.isDown(Keyboard.S)) {
+		if(JG.input.isDown(Keyboard.S)) {
 			hero.position.y ++;
 		}
 
-		if(JG.game.input.isDown(Keyboard.D)) {
+		if(JG.input.isDown(Keyboard.D)) {
 			hero.position.x ++;
 		}
 
-		if(JG.game.input.justPressed(Keyboard.F)) {
+		if(JG.input.justPressed(Keyboard.F)) {
 			JG.game.toggleFullScreen();
 		}
 
-		hero.position.x = JG.game.input.mouse.x;
-		hero.position.y = JG.game.input.mouse.y;
+		hero.position.x = JG.input.mouse.x;
+		hero.position.y = JG.input.mouse.y;
 
 	}
 

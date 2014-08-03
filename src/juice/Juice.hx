@@ -34,8 +34,6 @@ class Juice
 
 	public var viewPort:Rectangle;
 
-	public var input:Input;
-
 	public var fullScreen:Bool = false;
 
 	public var scale:Float = 1;
@@ -84,7 +82,7 @@ class Juice
 
 			clientRect = canvasScaled.getBoundingClientRect();
 
-			input = new Input(canvasScaled);
+			JG.input = new Input(canvasScaled);
 
 			currentScene = s;
 			currentScene.start();
@@ -180,7 +178,7 @@ class Juice
 		render();
 
 		// reset the input 
-		input.clearPressed();
+		JG.input.clearPressed();
 	}
 
 	private function update():Void {
