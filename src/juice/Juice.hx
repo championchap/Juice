@@ -26,7 +26,6 @@ class Juice
 
 	private var doc:Document;
 	private var canvas:CanvasElement;
-	public var clientRect:ClientRect;
 
 	public var ctx:CanvasRenderingContext2D;
 
@@ -73,7 +72,7 @@ class Juice
 
 			canvas.style.display = "none";
 
-			clientRect = canvasScaled.getBoundingClientRect();
+			JG.clientRect = canvasScaled.getBoundingClientRect();
 
 			JG.input = new Input(canvasScaled);
 
@@ -92,7 +91,7 @@ class Juice
 
 	private function resize():Void {
 		// we need to do this to be sure that the mouse position is recorded correctly
-		clientRect = canvasScaled.getBoundingClientRect();
+		JG.clientRect = canvasScaled.getBoundingClientRect();
 
 		windowSize = new Rectangle(0, 0, doc.body.clientWidth, doc.body.clientHeight);
 	}

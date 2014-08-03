@@ -1,5 +1,8 @@
 package juice;
 
+// js stuff 
+import js.html.ClientRect;
+
 // my stuff 
 import juice.Juice;
 import juice.utils.Input;
@@ -12,6 +15,8 @@ class JG
 	public static var input:Input;
 
 	public static var fullScreen:Bool = false;
+
+	public static var clientRect:ClientRect;
 
 	public static var viewPort:Rectangle;
 	public static var scale:Float = 1;
