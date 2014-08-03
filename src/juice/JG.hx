@@ -22,6 +22,8 @@ class JG
 	public static var viewPort:Rectangle;
 	public static var scale:Float = 1;
 
+	public static var smoothing:Bool = false;
+
 	public static var backgroundColour:String = "#336699";
 
 	// Canvas Contexts

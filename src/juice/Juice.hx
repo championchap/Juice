@@ -65,7 +65,7 @@ class Juice
 			doc.body.appendChild(canvas);
 			doc.body.appendChild(canvasScaled);
 
-			JG.canvasScaledCTX.imageSmoothingEnabled = false;
+			JG.canvasScaledCTX.imageSmoothingEnabled = JG.smoothing;
 
 			canvas.style.display = "none";
 
