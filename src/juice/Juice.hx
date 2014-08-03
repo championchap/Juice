@@ -33,8 +33,6 @@ class Juice
 	public var canvasScaled:CanvasElement;
 	public var ctxScaled:CanvasRenderingContext2D;
 
-	public var fullScreen:Bool = false;
-
 	private var currentScene:Scene;
 	private var nextScene:Scene;
 
@@ -105,7 +103,7 @@ class Juice
 	}
 
 	public function toggleFullScreen():Void {
-		if(fullScreen == false) {
+		if(JG.fullScreen == false) {
 			canvasScaled.width = Std.int(windowSize.width);
 			canvasScaled.height = Std.int(windowSize.height);
 
@@ -140,7 +138,7 @@ class Juice
 
 			JG.viewPort = new Rectangle(offX, offY, viewWidth, viewHeight);
 
-			fullScreen = true;
+			JG.fullScreen = true;
 		} else {
 			canvasScaled.style.position = "relative";
 
@@ -151,7 +149,7 @@ class Juice
 
 			JG.scale = 1;
 
-			fullScreen = false;
+			JG.fullScreen = false;
 		}
 
 		resize();
@@ -194,7 +192,7 @@ class Juice
 			currentScene.render();
 		}
 
-		if(fullScreen) {
+		if(JG.fullScreen) {
 			// fill the borders in black 
 			ctxScaled.fillStyle = "#000000";
 			ctxScaled.fillRect(0, 0, canvasScaled.width, canvasScaled.height);

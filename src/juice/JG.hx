@@ -11,6 +11,8 @@ class JG
 	public static var game:Juice;
 	public static var input:Input;
 
+	public static var fullScreen:Bool = false;
+
 	public static var viewPort:Rectangle;
 	public static var scale:Float = 1;
 
