@@ -1,11 +1,15 @@
 # Juice #
 
-Playing with the [Haxe](http://haxe.org) JavaScript target.
+A simple HTML5 game framework made in [Haxe](http://haxe.org).
+
+Why Juice? Because Haxe is Orange and JS sounds a bit like Juice if you say it wrong. Juh Sss instead of Jay Ess. 
+
+At the moment Juice renders to a HTML Canvas. I'll think about adding WebGL support in the future, but right now I'm fairly happy with the Canvas, so don't wait up.
 
 
 ## Demo ##
 
-Coming soon! Demo projects will be available under a new repo. 
+Coming soon! Demo projects will be available under a new repo.
 
 
 ## Usage ##
