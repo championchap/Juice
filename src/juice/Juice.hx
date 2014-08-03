@@ -19,6 +19,7 @@ import juice.Scene;
 import juice.JG;
 import juice.Assets;
 import juice.utils.Rectangle;
+import juice.graphics.Draw;
 
 class Juice
 {
@@ -35,8 +36,6 @@ class Juice
 	public var viewPort:Rectangle;
 
 	public var fullScreen:Bool = false;
-
-	public var scale:Float = 1;
 
 	private var currentScene:Scene;
 	private var nextScene:Scene;
@@ -132,7 +131,7 @@ class Juice
 				offX = (canvasScaled.width - viewWidth) / 2;
 				offY = 0;
 
-				scale = canvas.height / canvasScaled.height;
+				JG.scale = canvas.height / canvasScaled.height;
 			} else {
 				viewWidth = canvasScaled.width;
 				viewHeight = canvasScaled.width * (canvas.height / canvas.width);
@@ -140,7 +139,7 @@ class Juice
 				offX = 0;
 				offY = (canvasScaled.height - viewHeight) / 2;
 
-				scale = canvas.width / canvasScaled.width;
+				JG.scale = canvas.width / canvasScaled.width;
 			}
 
 			viewPort = new Rectangle(offX, offY, viewWidth, viewHeight);
@@ -154,7 +153,7 @@ class Juice
 
 			viewPort = new Rectangle(0, 0, canvas.width, canvas.height);
 
-			scale = 1;
+			JG.scale = 1;
 
 			fullScreen = false;
 		}
@@ -199,42 +198,13 @@ class Juice
 			currentScene.render();
 		}
 
-		// draw the scene to the scaled canvas
-		/*if(fullScreen){
-			ctxScaled.fillStyle = "#000000";
-			ctxScaled.fillRect(0, 0, canvasScaled.width, canvasScaled.height);
-
-			ctxScaled.drawImage(
-				canvas, 
-				0, 
-				0, 
-				canvas.width, 
-				canvas.height, 
-				0, 
-				(canvasScaled.height - (canvas.height * (canvasScaled.width / canvas.width))) / 2, 
-				canvasScaled.width, 
-				canvas.height * (canvasScaled.width / canvas.width)
-			);
-		} else {
-			ctxScaled.drawImage(
-				canvas, 
-				0, 
-				0, 
-				canvas.width, 
-				canvas.height, 
-				0, 
-				0, 
-				canvas.width, 
-				canvas.height
-			);
-		} */
-
 		if(fullScreen) {
 			// fill the borders in black 
 			ctxScaled.fillStyle = "#000000";
 			ctxScaled.fillRect(0, 0, canvasScaled.width, canvasScaled.height);
 		}
-		
+
+		// draw to the scaled canvas
 		ctxScaled.drawImage(
 			canvas, 
 			0, 
