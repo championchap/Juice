@@ -27,10 +27,7 @@ class Juice
 	private var doc:Document;
 	private var canvas:CanvasElement;
 
-	public var ctx:CanvasRenderingContext2D;
-
 	private var canvasScaled:CanvasElement;
-	public var ctxScaled:CanvasRenderingContext2D;
 
 	private var currentScene:Scene;
 	private var nextScene:Scene;
@@ -62,13 +59,13 @@ class Juice
 		Browser.window.onresize = onResize;
 
 		doc.body.onload = function (e:Event) {
-			ctx = canvas.getContext2d();
-			ctxScaled = canvasScaled.getContext2d();
+			JG.canvasCTX = canvas.getContext2d();
+			JG.canvasScaledCTX = canvasScaled.getContext2d();
 
 			doc.body.appendChild(canvas);
 			doc.body.appendChild(canvasScaled);
 
-			ctxScaled.imageSmoothingEnabled = false;
+			JG.canvasScaledCTX.imageSmoothingEnabled = false;
 
 			canvas.style.display = "none";
 
@@ -180,11 +177,11 @@ class Juice
 	}
 
 	private function render():Void {
-		ctx.clearRect(0, 0, canvas.width, canvas.height);
+		JG.canvasCTX.clearRect(0, 0, canvas.width, canvas.height);
 
 		// update the background 
-		ctx.fillStyle = JG.backgroundColour;
-		ctx.fillRect(0,0,canvas.width,canvas.height);
+		JG.canvasCTX.fillStyle = JG.backgroundColour;
+		JG.canvasCTX.fillRect(0,0,canvas.width,canvas.height);
 		
 		// draw the new one 
 		if(this.currentScene != null){
@@ -193,12 +190,12 @@ class Juice
 
 		if(JG.fullScreen) {
 			// fill the borders in black 
-			ctxScaled.fillStyle = "#000000";
-			ctxScaled.fillRect(0, 0, canvasScaled.width, canvasScaled.height);
+			JG.canvasScaledCTX.fillStyle = "#000000";
+			JG.canvasScaledCTX.fillRect(0, 0, canvasScaled.width, canvasScaled.height);
 		}
 
 		// draw to the scaled canvas
-		ctxScaled.drawImage(
+		JG.canvasScaledCTX.drawImage(
 			canvas, 
 			0, 
 			0, 

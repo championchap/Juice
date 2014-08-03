@@ -2,6 +2,7 @@ package juice;
 
 // js stuff 
 import js.html.ClientRect;
+import js.html.CanvasRenderingContext2D;
 
 // my stuff 
 import juice.Juice;
@@ -22,6 +23,10 @@ class JG
 	public static var scale:Float = 1;
 
 	public static var backgroundColour:String = "#336699";
+
+	// Canvas Contexts
+	public static var canvasCTX:CanvasRenderingContext2D;
+	public static var canvasScaledCTX:CanvasRenderingContext2D;
 
 	public function new(){
 		
