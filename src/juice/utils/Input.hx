@@ -106,8 +106,8 @@ class Input
 
 		// trace("scale: " + JG.game.scale);
 
-		mousePos.x = (mx - (JG.game.clientRect.left + JG.game.viewPort.x)) * JG.scale;
-		mousePos.y = (my - (JG.game.clientRect.top + JG.game.viewPort.y)) * JG.scale;
+		mousePos.x = (mx - (JG.game.clientRect.left + JG.viewPort.x)) * JG.scale;
+		mousePos.y = (my - (JG.game.clientRect.top + JG.viewPort.y)) * JG.scale;
 
 	}
 

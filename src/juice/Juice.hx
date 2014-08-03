@@ -33,8 +33,6 @@ class Juice
 	public var canvasScaled:CanvasElement;
 	public var ctxScaled:CanvasRenderingContext2D;
 
-	public var viewPort:Rectangle;
-
 	public var fullScreen:Bool = false;
 
 	private var currentScene:Scene;
@@ -62,7 +60,7 @@ class Juice
 		canvasScaled.height = h;
 
 		windowSize = new Rectangle(0, 0, doc.body.clientWidth, doc.body.clientHeight);
-		viewPort = new Rectangle(0, 0, canvas.width, canvas.height);
+		JG.viewPort = new Rectangle(0, 0, canvas.width, canvas.height);
 
 		Browser.window.onresize = onResize;
 
@@ -140,7 +138,7 @@ class Juice
 				JG.scale = canvas.width / canvasScaled.width;
 			}
 
-			viewPort = new Rectangle(offX, offY, viewWidth, viewHeight);
+			JG.viewPort = new Rectangle(offX, offY, viewWidth, viewHeight);
 
 			fullScreen = true;
 		} else {
@@ -149,7 +147,7 @@ class Juice
 			canvasScaled.width = canvas.width;
 			canvasScaled.height = canvas.height;
 
-			viewPort = new Rectangle(0, 0, canvas.width, canvas.height);
+			JG.viewPort = new Rectangle(0, 0, canvas.width, canvas.height);
 
 			JG.scale = 1;
 
@@ -209,10 +207,10 @@ class Juice
 			0, 
 			canvas.width, 
 			canvas.height, 
-			viewPort.x, 
-			viewPort.y, 
-			viewPort.width, 
-			viewPort.height
+			JG.viewPort.x, 
+			JG.viewPort.y, 
+			JG.viewPort.width, 
+			JG.viewPort.height
 		);
 
 	}
