@@ -11,8 +11,10 @@ class Scene
 	}
 
 	public function add(ent:Entity):Void {
+		ent.depth = entities.length;
 		entities.push(ent);
 		ent.scene = this;
+		trace(ent.depth);
 		ent.start();
 	}
 
@@ -22,7 +24,19 @@ class Scene
 	}
 
 	private function sortByDepth(ents:Array<Entity>):Void {
+		ents.sort(
+			function (a:Entity, b:Entity) {
+				if(a.depth > b.depth) {
+					return 1;
+				}
 
+				if(a.depth < b.depth) {
+					return -1;
+				}
+
+				return 0;
+			}
+		);
 	}
 
 	public function start():Void {

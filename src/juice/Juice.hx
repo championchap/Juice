@@ -122,7 +122,7 @@ class Juice
 
 			JG.fullScreen = true;
 		} else {
-			canvasScaled.style.position = "relative";
+			canvasScaled.style.position = "static";
 
 			canvasScaled.width = canvas.width;
 			canvasScaled.height = canvas.height;
