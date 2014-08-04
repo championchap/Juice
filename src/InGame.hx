@@ -39,6 +39,13 @@ class InGame extends Scene
 		ani.play("idle");
 
 		this.add(hero);
+
+		var terrain:Entity = new Entity();
+		var tilemap:juice.graphics.TileMap = new juice.graphics.TileMap(Assets.textures.get("one"), [0, -1, 1, 0, 1, 1, 0, 1, 0, 1], 32, 32, 5, 2);
+
+		terrain.add(tilemap);
+		this.add(terrain);
+
 	}
 
 	override public function update():Void {
