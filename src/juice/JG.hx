@@ -16,6 +16,8 @@ class JG
 	public static var game:Juice; // I need it to get to toggleFullScreen at the moment 
 	public static var input:Input;
 
+	public static var paused:Bool = false;
+
 	public static var fullScreen:Bool = false;
 
 	public static var clientRect:ClientRect;
