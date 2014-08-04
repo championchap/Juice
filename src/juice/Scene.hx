@@ -14,7 +14,6 @@ class Scene
 		ent.depth = entities.length;
 		entities.push(ent);
 		ent.scene = this;
-		trace(ent.depth);
 		ent.start();
 	}
 
@@ -24,6 +23,7 @@ class Scene
 	}
 
 	private function sortByDepth(ents:Array<Entity>):Void {
+		// I think this probably isn't ideal 
 		ents.sort(
 			function (a:Entity, b:Entity) {
 				if(a.depth > b.depth) {
