@@ -38,13 +38,19 @@ class InGame extends Scene
 
 		ani.play("idle");
 
-		this.add(hero);
-
 		var terrain:Entity = new Entity();
-		var tilemap:juice.graphics.TileMap = new juice.graphics.TileMap(Assets.textures.get("one"), [0, -1, 1, 0, 1, 1, 0, 1, 0, 1], 32, 32, 5, 2);
+		var level:Array<Int> = [];
+
+		for(i in 0...84){
+			level.push(juice.utils.NumberTools.randomInt(90, 0));
+		}
+
+		var tilemap:juice.graphics.TileMap = new juice.graphics.TileMap(Assets.textures.get("three"), level, 60, 60, 12, 7);
 
 		terrain.add(tilemap);
+
 		this.add(terrain);
+		this.add(hero);
 
 	}
 
