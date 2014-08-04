@@ -19,6 +19,7 @@ class Loading extends Scene
 		Assets.addTexture("three", "textures/sprite3.png");
 		Assets.addTexture("four", "textures/sprite4.png");
 		Assets.addTexture("five", "textures/sprite5.png");
+		Assets.addTexture("hero", "textures/hero.png");
 
 		Assets.load();
 	}

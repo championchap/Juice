@@ -5,36 +5,42 @@ import juice.Component;
 import juice.graphics.Texture;
 import juice.graphics.Draw;
 import juice.utils.Point;
+import juice.utils.Rectangle;
 
 class Image extends Component
 {
 
-	private var tex:Texture;
+	public var texture:Texture;
+	public var bounds:Rectangle;
+	public var position:Point = new Point();
+	public var scale:Point = new Point(1, 1);
 
-	public var position:Point;
-
-	public function new(texture:Texture, xPos:Float = 0, yPos:Float = 0){
+	public function new(texture:Texture, bounds:Rectangle){
 		super();
 
-		tex = texture;
+		this.texture = texture;
 
-		position = new Point(xPos, yPos);
+		if(bounds == null){
+			bounds = new Rectangle(0, 0, texture.width, texture.height);
+		} else {
+			this.bounds = bounds;
+		}
 	}
 
 	override public function render():Void {
 		super.render();
 
-		if(tex != null) {
+		if(texture != null) {
 			Draw.drawImage(
-				tex.image, 
-				tex.bounds.x,
-				tex.bounds.y, 
-				tex.width,
-				tex.height,
+				texture.image, 
+				bounds.x,
+				bounds.y, 
+				bounds.width,
+				bounds.height,
 				this.entity.position.x + position.x,
 				this.entity.position.y + position.y,
-				tex.width,
-				tex.height
+				bounds.width * scale.x,
+				bounds.height * scale.y
 			);
 		}
 		

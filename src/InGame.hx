@@ -9,6 +9,7 @@ import juice.utils.keyboard.Keyboard;
 import juice.graphics.Texture;
 import juice.Assets;
 import juice.components.Image;
+import juice.components.Animator;
 
 class InGame extends Scene
 {
@@ -24,8 +25,16 @@ class InGame extends Scene
 
 		hero = new Entity();
 
-		var heroTex:Texture = Assets.textures.get("Pikachu");
-		hero.add(new Image(heroTex, -heroTex.width / 2, -heroTex.height / 2));
+		var heroTex:Texture = Assets.textures.get("hero");
+		var ani:Animator = new Animator(heroTex, Std.int(heroTex.width / 15), Std.int(heroTex.height / 4));
+		ani.add("idle", [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15,
+						16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 
+						30,	31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 
+						44, 45,	46, 47, 48, 49, 50, 51, 52, 53, 54, 56, 56, 57, 58], 30);
+
+		hero.add(ani);
+
+		ani.play("idle");
 
 		this.add(hero);
 	}
