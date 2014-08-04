@@ -27,6 +27,8 @@ class JG
 
 	public static var backgroundColour:String = "#336699";
 
+	public static var frameRate:Int;
+
 	// Canvas Contexts
 	public static var canvasCTX:CanvasRenderingContext2D;
 	public static var canvasScaledCTX:CanvasRenderingContext2D;

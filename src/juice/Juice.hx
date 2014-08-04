@@ -47,6 +47,8 @@ class Juice
 
 		Browser.window.onresize = onResize;
 
+		JG.frameRate = fps;
+
 		doc.body.onload = function (e:Event) {
 			JG.canvasCTX = canvas.getContext2d();
 			JG.canvasScaledCTX = canvasScaled.getContext2d();

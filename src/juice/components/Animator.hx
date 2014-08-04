@@ -31,6 +31,8 @@ class Animator extends Image
 	private var frameWidth:Int;
 	private var frameHeight:Int;
 
+	private var frameTime:Float = 0;
+
 	public function new(texture:Texture, frameWidth:Int, frameHeight:Int){
 		super(texture, new Rectangle(0, 0, frameWidth, frameHeight));
 		this.frameWidth = frameWidth;
@@ -60,10 +62,17 @@ class Animator extends Image
 		super.update();
 
 		if(isPlaying) {
-			if(current.currentFrame < current.frames.length -1) {
-				current.currentFrame ++;
-			} else {
-				current.currentFrame = 0;
+
+			frameTime += (1 / JG.frameRate);
+
+			if(frameTime >= (1 / current.fps)) {
+				if(current.currentFrame < current.frames.length -1) {
+					current.currentFrame ++;
+				} else {
+					current.currentFrame = 0;
+				}
+
+				frameTime -= (1 / current.fps);
 			}
 		}
 	}
