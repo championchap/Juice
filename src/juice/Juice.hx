@@ -13,6 +13,7 @@ import haxe.Timer;
 import juice.utils.Input;
 import juice.JG;
 import juice.utils.Rectangle;
+import juice.core.Scene;
 
 class Juice
 {

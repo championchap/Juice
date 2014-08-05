@@ -1,4 +1,4 @@
-package juice;
+package juice.core;
 
 import juice.Entity;
 

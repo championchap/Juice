@@ -1,6 +1,6 @@
 package ;
 
-import juice.Scene;
+import juice.core.Scene;
 import juice.Assets;
 import juice.JG;
 

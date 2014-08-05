@@ -8,7 +8,7 @@ import js.html.CanvasRenderingContext2D;
 import juice.Juice;
 import juice.utils.Input;
 import juice.utils.Rectangle;
-import juice.Scene;
+import juice.core.Scene;
 
 class JG
 {

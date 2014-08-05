@@ -12,7 +12,6 @@ class Image extends Component
 
 	public var texture:Texture;
 	public var bounds:Rectangle;
-	public var position:Point = new Point();
 	public var scale:Point = new Point(1, 1);
 
 	public function new(texture:Texture, bounds:Rectangle){

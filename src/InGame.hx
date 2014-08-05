@@ -1,7 +1,7 @@
 package ;
 
 // my stuff 
-import juice.Scene;
+import juice.core.Scene;
 import juice.Entity;
 import juice.components.Test;
 import juice.JG;
