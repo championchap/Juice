@@ -154,7 +154,7 @@ class Juice
 		render();
 
 		// reset the input 
-		JG.input.clearPressed();
+		JG.input.update();
 	}
 
 	private function update():Void {

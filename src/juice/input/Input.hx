@@ -20,6 +20,8 @@ class Input
 	private var keysPressed:Array<Bool> = new Array<Bool>();
 
 	private var mousePos:Point = new Point();
+	private var mouseDown:Bool = false;
+	private var mouseJustDown:Bool = false;
 
 	public var mouse(get, null):Point;
 
@@ -37,8 +39,10 @@ class Input
 		}
 
 		// mouse stuff!
-		c.onclick = onClick;
-		c.oncontextmenu = onRightClick;
+		c.onmousedown = onMouseDown;
+		c.onmouseup = onMouseUp;
+
+		c.oncontextmenu = onContextMenu;
 
 		c.onmousemove = onMouseMove;
 
@@ -59,10 +63,22 @@ class Input
 		return keysPressed[key];
 	}
 
-	public function clearPressed():Void {
+	public function clicked():Bool {
+		return mouseJustDown;
+	}
+
+	public function isMouseDown():Bool {
+		return mouseDown;
+	}
+
+	public function update():Void {
+		// clear the keys
 		for(i in 0...keysPressed.length) {
 			keysPressed[i] = false;
 		}
+
+		// clear the mouse press
+		mouseJustDown = false;
 	}
 
 	private function onKeyDown(e:KeyboardEvent):Void {
@@ -81,10 +97,16 @@ class Input
 		return mousePos;
 	}
 
-	private function onClick(e:Event):Void {
+	private function onMouseDown(e:MouseEvent):Void {
+		mouseDown = true;
+		mouseJustDown = true;
 	}
 
-	private function onRightClick(e:Event):Void {
+	private function onMouseUp(e:MouseEvent):Void {
+		mouseDown = false;
+	}
+
+	private function onContextMenu(e:Event):Void {
 		e.preventDefault();
 	}
 
