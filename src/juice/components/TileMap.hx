@@ -1,4 +1,4 @@
-package juice.graphics;
+package juice.components;
 
 import juice.components.Image;
 import juice.graphics.Texture;

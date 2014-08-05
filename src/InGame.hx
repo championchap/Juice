@@ -9,6 +9,7 @@ import juice.graphics.Texture;
 import juice.Assets;
 import juice.components.Image;
 import juice.components.Animator;
+import juice.components.TileMap;
 
 class InGame extends Scene
 {
@@ -50,7 +51,7 @@ class InGame extends Scene
 			
 		}
 
-		var tilemap:juice.graphics.TileMap = new juice.graphics.TileMap(Assets.textures.get("three"), level, 60, 60, 12, 7);
+		var tilemap:TileMap = new TileMap(Assets.textures.get("three"), level, 60, 60, 12, 7);
 
 		terrain.add(tilemap);
 
