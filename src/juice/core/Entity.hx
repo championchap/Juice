@@ -1,6 +1,6 @@
 package juice.core;
 
-import juice.utils.Point;
+import juice.utils.geometry.Point;
 import juice.core.Component;
 import juice.core.Scene;
 

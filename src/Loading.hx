@@ -1,7 +1,7 @@
 package ;
 
 import juice.core.Scene;
-import juice.Assets;
+import juice.data.Assets;
 import juice.JG;
 
 class Loading extends Scene

@@ -1,4 +1,4 @@
-package juice.utils;
+package juice.utils.geometry;
 
 class Point
 {

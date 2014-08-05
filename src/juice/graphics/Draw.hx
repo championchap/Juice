@@ -4,9 +4,9 @@ package juice.graphics;
 import js.html.Image;
 
 // my stuff 
-import juice.utils.Rectangle;
+import juice.utils.geometry.Rectangle;
 import juice.JG;
-import juice.utils.Point;
+import juice.utils.geometry.Point;
 
 class Draw
 {

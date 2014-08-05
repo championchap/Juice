@@ -1,10 +1,10 @@
-package juice.graphics;
+package juice.data;
 
 // javascript stuff
 import js.html.Image;
 
 // my stuff 
-import juice.utils.Rectangle;
+import juice.utils.geometry.Rectangle;
 
 class Texture
 {

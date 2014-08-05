@@ -1,11 +1,11 @@
-package juice.components;
+package juice.graphics;
 
 // my stuff 
 import juice.core.Component;
-import juice.graphics.Texture;
+import juice.data.Texture;
 import juice.graphics.Draw;
-import juice.utils.Point;
-import juice.utils.Rectangle;
+import juice.utils.geometry.Point;
+import juice.utils.geometry.Rectangle;
 
 class Image extends Component
 {

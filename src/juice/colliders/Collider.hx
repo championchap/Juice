@@ -1,4 +1,4 @@
-package juice.components;
+package juice.colliders;
 
 import juice.Component;
 

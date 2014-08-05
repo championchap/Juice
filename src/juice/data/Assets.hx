@@ -1,11 +1,11 @@
-package juice;
+package juice.data;
 
 // javascript stuff
 import js.html.Image;
 import js.html.Event;
 
 // my stuff
-import juice.graphics.Texture;
+import juice.data.Texture;
 
 class Assets
 {

@@ -10,9 +10,9 @@ import js.html.Event;
 import haxe.Timer;
 
 // My Stuff
-import juice.utils.Input;
+import juice.input.Input;
 import juice.JG;
-import juice.utils.Rectangle;
+import juice.utils.geometry.Rectangle;
 import juice.core.Scene;
 
 class Juice

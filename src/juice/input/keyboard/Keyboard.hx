@@ -1,4 +1,4 @@
-package juice.utils.keyboard;
+package juice.input.keyboard;
 
 class Keyboard
 {

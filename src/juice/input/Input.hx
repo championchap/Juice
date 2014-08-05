@@ -1,4 +1,4 @@
-package juice.utils;
+package juice.input;
 
 // Javascript stuff 
 import js.html.CanvasElement;
@@ -8,7 +8,7 @@ import js.html.KeyboardEvent;
 import js.html.MouseEvent;
 
 // my stuff
-import juice.utils.Point;
+import juice.utils.geometry.Point;
 import juice.JG;
 
 class Input
