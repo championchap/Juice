@@ -26,7 +26,7 @@ class Juice
 	private var windowSize:Rectangle;
 
 	public function new(width:Int, height:Int, scene:Scene, fps:Int = 60){
-		JG.game = this;
+		JG.setup(this);
 		setup(width, height, scene, fps);
 	}
 

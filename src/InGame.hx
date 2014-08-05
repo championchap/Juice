@@ -91,7 +91,7 @@ class InGame extends Scene
 			}
 
 			if(JG.input.justPressed(Keyboard.F)) {
-				JG.game.toggleFullScreen();
+				JG.toggleFullScreen();
 			}
 
 			hero.position.x = JG.input.mouse.x;

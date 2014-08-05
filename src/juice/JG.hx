@@ -13,7 +13,8 @@ import juice.core.Scene;
 class JG
 {
 
-	public static var game:Juice; // I need it to get to toggleFullScreen at the moment 
+	private static var game:Juice; // a reference to the Juice instance 
+
 	public static var input:Input;
 
 	public static var paused:Bool = false;
@@ -38,7 +39,12 @@ class JG
 	public static var currentScene:Scene;
 	public static var nextScene:Scene;
 
-	public function new(){
-		
+	public static function setup(juice:Juice):Void {
+		game = juice;
 	}
+
+	public static function toggleFullScreen():Void {
+		game.toggleFullScreen();
+	}
+
 }
