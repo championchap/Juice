@@ -1,7 +1,7 @@
 package juice.components;
 
 // my stuff 
-import juice.Component;
+import juice.core.Component;
 import juice.graphics.Texture;
 import juice.graphics.Draw;
 import juice.utils.Point;

@@ -1,7 +1,7 @@
 package juice.core;
 
 import juice.utils.Point;
-import juice.Component;
+import juice.core.Component;
 import juice.core.Scene;
 
 class Entity

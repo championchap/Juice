@@ -1,4 +1,4 @@
-package juice;
+package juice.core;
 
 import juice.core.Entity;
 import juice.utils.Point;
