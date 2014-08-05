@@ -1,6 +1,6 @@
-package juice;
+package juice.core;
 
-import juice.Entity;
+import juice.core.Entity;
 
 class Scene
 {

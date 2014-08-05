@@ -1,8 +1,8 @@
 package juice.graphics;
 
-import juice.components.Image;
-import juice.graphics.Texture;
-import juice.utils.Rectangle;
+import juice.graphics.Image;
+import juice.data.Texture;
+import juice.utils.geometry.Rectangle;
 import juice.graphics.Draw;
 
 class TileMap extends Image

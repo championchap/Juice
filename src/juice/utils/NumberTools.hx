@@ -6,7 +6,7 @@ import flash.system.Capabilities;
 #end
 
 #if js
-import juice.utils.Point;
+import juice.utils.geometry.Point;
 #end
 
 /**

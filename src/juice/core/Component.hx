@@ -1,11 +1,14 @@
-package juice;
+package juice.core;
 
-import juice.Entity;
+import juice.core.Entity;
+import juice.utils.geometry.Point;
 
 class Component
 {
 
 	public var entity:Entity;
+
+	public var position:Point = new Point();
 
 	public var visible:Bool = true;
 	public var active:Bool = true;

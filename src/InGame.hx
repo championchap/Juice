@@ -1,15 +1,15 @@
 package ;
 
 // my stuff 
-import juice.Scene;
-import juice.Entity;
-import juice.components.Test;
+import juice.core.Scene;
+import juice.core.Entity;
 import juice.JG;
-import juice.utils.keyboard.Keyboard;
-import juice.graphics.Texture;
-import juice.Assets;
-import juice.components.Image;
-import juice.components.Animator;
+import juice.input.keyboard.Keyboard;
+import juice.data.Texture;
+import juice.data.Assets;
+import juice.graphics.Image;
+import juice.graphics.Animator;
+import juice.graphics.TileMap;
 
 class InGame extends Scene
 {
@@ -51,7 +51,7 @@ class InGame extends Scene
 			
 		}
 
-		var tilemap:juice.graphics.TileMap = new juice.graphics.TileMap(Assets.textures.get("three"), level, 60, 60, 12, 7);
+		var tilemap:TileMap = new TileMap(Assets.textures.get("three"), level, 60, 60, 12, 7);
 
 		terrain.add(tilemap);
 

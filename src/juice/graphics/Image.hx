@@ -1,18 +1,17 @@
-package juice.components;
+package juice.graphics;
 
 // my stuff 
-import juice.Component;
-import juice.graphics.Texture;
+import juice.core.Component;
+import juice.data.Texture;
 import juice.graphics.Draw;
-import juice.utils.Point;
-import juice.utils.Rectangle;
+import juice.utils.geometry.Point;
+import juice.utils.geometry.Rectangle;
 
 class Image extends Component
 {
 
 	public var texture:Texture;
 	public var bounds:Rectangle;
-	public var position:Point = new Point();
 	public var scale:Point = new Point(1, 1);
 
 	public function new(texture:Texture, bounds:Rectangle){
