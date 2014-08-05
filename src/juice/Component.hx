@@ -1,6 +1,6 @@
 package juice;
 
-import juice.Entity;
+import juice.core.Entity;
 import juice.utils.Point;
 
 class Component

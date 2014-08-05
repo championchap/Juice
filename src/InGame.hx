@@ -2,7 +2,7 @@ package ;
 
 // my stuff 
 import juice.core.Scene;
-import juice.Entity;
+import juice.core.Entity;
 import juice.components.Test;
 import juice.JG;
 import juice.utils.keyboard.Keyboard;
