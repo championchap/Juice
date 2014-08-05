@@ -16,6 +16,8 @@ class Input
 
 	private var canvasRef:CanvasElement;
 
+	private var keyGroups:Map<String, Array<Int>> = new Map<String, Array<Int>>();
+
 	private var keysDown:Array<Bool> = new Array<Bool>();
 	private var keysPressed:Array<Bool> = new Array<Bool>();
 
@@ -49,6 +51,36 @@ class Input
 		// keyboard stuff!
 		Browser.window.onkeydown = onKeyDown;
 		Browser.window.onkeyup = onKeyUp;
+	}
+
+	// add a key group 
+	// so we don't have to check for individual keys all the time
+	public function add(name:String, keys:Array<Int>):Void {
+		keyGroups.set(name, keys);
+	}
+
+	// set pressed to check if the keys were JUST pressed
+	// leave pressed as false to just see if the keys are held down
+	public function checkGroup(name:String, pressed:Bool = false):Bool {
+		var group:Array<Int>;
+
+		if(keyGroups.exists(name)) {
+			group = keyGroups.get(name);
+
+			for(i in 0...group.length) {
+				if(pressed) {
+					if(keysDown[group[i]] == true){
+						return true;
+					}
+				} else {
+					if(keysPressed[group[i]] == true){
+						return true;
+					}
+				}
+			}
+		}
+
+		return false;
 	}
 
 	public function isDown(key:Int):Bool {
