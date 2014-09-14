@@ -25,4 +25,4 @@ This is [free software](https://www.gnu.org/philosophy/free-sw.html) made availa
 ## Who do I talk to? ##
 
 * [Erik on Twitter](https://twitter.com/championchap)
-* [ErikWatson.me](https://erikwatson.me)
+* [ErikWatson.me](http://erikwatson.me)
