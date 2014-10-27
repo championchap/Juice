@@ -5,7 +5,7 @@ import juice.core.Entity;
 class Scene
 {
 
-	private var entities:Array<Entity> = new Array<Entity>();
+	private var entities:Array<Entity> = [];
 
 	public function new(){
 	}
@@ -14,7 +14,6 @@ class Scene
 		ent.depth = entities.length;
 		entities.push(ent);
 		ent.scene = this;
-		trace(ent.depth);
 		ent.start();
 	}
 

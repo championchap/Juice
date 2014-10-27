@@ -15,7 +15,7 @@ class Entity
 	public var depth:Int;
 
 	// entities have their functionality extended through a list of components
-	private var components:Array<Component> = new Array<Component>();
+	private var components:Array<Component> = [];
 
 	public function new(){
 	}
