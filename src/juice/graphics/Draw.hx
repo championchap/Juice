@@ -41,8 +41,4 @@ class Draw
 		);
 	}
 
-	public static function drawImageClipped():Void {
-		
-	}
-
 }
