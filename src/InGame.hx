@@ -94,8 +94,8 @@ class InGame extends Scene
 				JG.game.toggleFullScreen();
 			}
 
-			hero.position.x = JG.input.mouse.x;
-			hero.position.y = JG.input.mouse.y;
+			//hero.position.x = JG.input.mouse.x;
+			//hero.position.y = JG.input.mouse.y;
 
 		}
 
