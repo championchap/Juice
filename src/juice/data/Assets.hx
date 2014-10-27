@@ -14,7 +14,7 @@ class Assets
 	public static var textures:Map<String, Texture> = new Map<String, Texture>();
 
 	// assets that have not yet been loaded 
-	private static var texturesToLoad:Array<AssetData> = new Array<AssetData>();
+	private static var assetsToLoad:Array<AssetData> = [];
 
 	public static var percent:Int = 0; // how much has loaded?
 
@@ -26,46 +26,59 @@ class Assets
 	}
 
 	public static function addTexture(name:String, url:String):Void {
-		texturesToLoad.push(new AssetData(name, url));
+		assetsToLoad.push(new AssetData(name, url, "Texture"));
 		toLoad ++;
 	}
 
-	public static function addSFX():Void {
+	public static function addSFX(name:String, url:String):Void {
+		assetsToLoad.push(new AssetData(name, url, "SFX"));
 		toLoad ++;
 	}
 
-	public static function addMusic():Void {
+	public static function addMusic(name:String, url:String):Void {
+		assetsToLoad.push(new AssetData(name, url, "Music"));
 		toLoad ++;
 	}
 
-	public static function addData():Void {
+	public static function addData(name:String, url:String):Void {
+		assetsToLoad.push(new AssetData(name, url, "Data"));
 		toLoad ++;
 	}
 
 	// call this once the assets you want to load have been added 
 	// to do the actual loading 
 	public static function load():Void {
-		// load textures
-		var tex:Texture;
-		var name:String;
 
-		for(i in 0...texturesToLoad.length) {
-			// I don't like making this var here
-			// but outside of the loop all the textures get set to the same image
-			var img:Image = new Image();
+		for(asset in assetsToLoad) {
 
-			img.src = texturesToLoad[i].url;
+			switch (asset.assetType) {
+				case "Texture":
+					loadTexture(asset);
 
-			img.onload = function (e:Event) {
+				case "SFX":
 
-				tex = new Texture(img);
-				name = texturesToLoad[i].name;
+				case "Music":
 
-				textures.set(name, tex);
-
-				updateProgress();
-
+				case "Data":
 			}
+		}
+	}
+
+	private static function loadTexture(asset:AssetData):Void {
+		// I don't like making this var here
+		// but outside of the loop all the textures get set to the same image
+		var img:Image = new Image();
+		var tex:Texture;
+
+		img.src = asset.url;
+
+		img.onload = function (e:Event) {
+
+			tex = new Texture(img);
+
+			textures.set(asset.name, tex);
+
+			updateProgress();
 		}
 	}
 
@@ -80,9 +93,11 @@ class AssetData
 {
 	public var name:String;
 	public var url:String;
+	public var assetType:String;
 
-	public function new(Name:String, URL:String){
+	public function new(Name:String, URL:String, AssetType:String){
 		name = Name;
 		url = URL;
+		assetType = AssetType;
 	}
 }

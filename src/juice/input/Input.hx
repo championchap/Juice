@@ -9,7 +9,6 @@ import js.html.MouseEvent;
 
 // my stuff
 import juice.utils.geometry.Point;
-import juice.JG;
 
 class Input
 {
@@ -18,8 +17,8 @@ class Input
 
 	private var keyGroups:Map<String, Array<Int>> = new Map<String, Array<Int>>();
 
-	private var keysDown:Array<Bool> = new Array<Bool>();
-	private var keysPressed:Array<Bool> = new Array<Bool>();
+	private var keysDown:Array<Bool> = [];
+	private var keysPressed:Array<Bool> = [];
 
 	private var mousePos:Point = new Point();
 	private var mouseDown:Bool = false;
@@ -160,8 +159,8 @@ class Input
 
 		// trace("scale: " + JG.game.scale);
 
-		mousePos.x = (mx - (JG.clientRect.left + JG.viewPort.x)) * JG.scale;
-		mousePos.y = (my - (JG.clientRect.top + JG.viewPort.y)) * JG.scale;
+		mousePos.x = (mx - (Juice.clientRect.left + Juice.viewPort.x)) * Juice.scale;
+		mousePos.y = (my - (Juice.clientRect.top + Juice.viewPort.y)) * Juice.scale;
 
 	}
 

@@ -5,7 +5,7 @@ import juice.core.Entity;
 class Scene
 {
 
-	private var entities:Array<Entity> = new Array<Entity>();
+	private var entities:Array<Entity> = [];
 
 	public function new(){
 	}
@@ -52,17 +52,17 @@ class Scene
 		sortByDepth(entities);
 
 		// update all of the entities 
-		for(i in 0...entities.length) {
-			if(entities[i].active) {
-				entities[i].update();
+		for(entity in entities) {
+			if(entity.active) {
+				entity.update();
 			}
 		}
 	}
 
 	public function render():Void {
-		for(i in 0...entities.length) {
-			if(entities[i].visible) {
-				entities[i].render();
+		for(entity in entities) {
+			if(entity.visible) {
+				entity.render();
 			}
 		}
 	}

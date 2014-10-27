@@ -3,13 +3,13 @@ package ;
 // my stuff 
 import juice.core.Scene;
 import juice.core.Entity;
-import juice.JG;
 import juice.input.keyboard.Keyboard;
 import juice.data.Texture;
 import juice.data.Assets;
 import juice.graphics.Image;
 import juice.graphics.Animator;
 import juice.graphics.TileMap;
+import juice.Juice;
 
 class InGame extends Scene
 {
@@ -24,7 +24,7 @@ class InGame extends Scene
 	override public function start():Void {
 		super.start();
 
-		JG.backgroundColour = "#202020";
+		Juice.backgroundColour = "#202020";
 
 		hero = new Entity();
 
@@ -62,40 +62,40 @@ class InGame extends Scene
 
 	override public function update():Void {
 
-		if(JG.input.justPressed(Keyboard.P)) {
-			if(JG.paused == false) {
-				JG.paused = true;
+		if(Juice.input.justPressed(Keyboard.P)) {
+			if(Juice.paused == false) {
+				Juice.paused = true;
 			} else {
-				JG.paused = false;
+				Juice.paused = false;
 			}
 		}
 
-		if(JG.paused == false){
+		if(Juice.paused == false){
 
 			super.update();
 
-			if(JG.input.isDown(Keyboard.W)) {
+			if(Juice.input.isDown(Keyboard.W)) {
 				hero.position.y --;
 			}
 
-			if(JG.input.isDown(Keyboard.A)) {
+			if(Juice.input.isDown(Keyboard.A)) {
 				hero.position.x --;
 			}
 
-			if(JG.input.isDown(Keyboard.S)) {
+			if(Juice.input.isDown(Keyboard.S)) {
 				hero.position.y ++;
 			}
 
-			if(JG.input.isDown(Keyboard.D)) {
+			if(Juice.input.isDown(Keyboard.D)) {
 				hero.position.x ++;
 			}
 
-			if(JG.input.justPressed(Keyboard.F)) {
-				JG.toggleFullScreen();
+			if(Juice.input.justPressed(Keyboard.F)) {
+				Juice.toggleFullScreen();
 			}
 
-			hero.position.x = JG.input.mouse.x;
-			hero.position.y = JG.input.mouse.y;
+			//hero.position.x = JG.input.mouse.x;
+			//hero.position.y = JG.input.mouse.y;
 
 		}
 

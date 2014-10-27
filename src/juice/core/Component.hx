@@ -10,8 +10,8 @@ class Component
 
 	public var position:Point = new Point();
 
-	public var visible:Bool = true;
-	public var active:Bool = true;
+	public var visible:Bool = true; // draws?
+	public var active:Bool = true; // updates?
 
 	public function new(){
 
