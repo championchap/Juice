@@ -5,7 +5,6 @@ import js.html.Image;
 
 // my stuff 
 import juice.utils.geometry.Rectangle;
-import juice.JG;
 import juice.utils.geometry.Point;
 
 class Draw
@@ -15,20 +14,20 @@ class Draw
 	}
 
 	public static function drawFilledRect(rect:Rectangle, colour:String = "#ffffff"):Void {
-		JG.canvasCTX.fillStyle = colour;
-		JG.canvasCTX.fillRect(rect.x, rect.y, rect.width, rect.height);
+		Juice.canvasCTX.fillStyle = colour;
+		Juice.canvasCTX.fillRect(rect.x, rect.y, rect.width, rect.height);
 	}
 
 	public static function drawFilledCircle(position:Point, radius:Float, colour:String = "#ffffff"):Void {
-		JG.canvasCTX.fillStyle = colour;
-		JG.canvasCTX.beginPath();
-		JG.canvasCTX.arc(position.x, position.y, radius, 0, Math.PI*2, false);
-		JG.canvasCTX.closePath();
-		JG.canvasCTX.fill();
+		Juice.canvasCTX.fillStyle = colour;
+		Juice.canvasCTX.beginPath();
+		Juice.canvasCTX.arc(position.x, position.y, radius, 0, Math.PI*2, false);
+		Juice.canvasCTX.closePath();
+		Juice.canvasCTX.fill();
 	}
 
 	public static function drawImage(image:Image, cropX:Float, cropY:Float, cropWidth:Float, cropHeight:Float, x:Float, y:Float, width:Float, height:Float):Void {
-		JG.canvasCTX.drawImage(
+		Juice.canvasCTX.drawImage(
 			image,
 			cropX,
 			cropY,

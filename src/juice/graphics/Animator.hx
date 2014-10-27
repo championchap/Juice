@@ -63,7 +63,7 @@ class Animator extends Image
 
 		if(isPlaying) {
 
-			frameTime += (1 / JG.frameRate);
+			frameTime += (1 / Juice.frameRate);
 
 			if(frameTime >= (1 / current.fps)) {
 				if(current.currentFrame < current.frames.length -1) {

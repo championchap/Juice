@@ -2,7 +2,7 @@ package ;
 
 import juice.core.Scene;
 import juice.data.Assets;
-import juice.JG;
+import juice.Juice;
 
 class Loading extends Scene
 {
@@ -30,7 +30,7 @@ class Loading extends Scene
 		if(Assets.percent < 100){
 			// trace(Assets.percent + "%");
 		} else {
-			JG.nextScene = new InGame();
+			Juice.nextScene = new InGame();
 		}
 	}
 }

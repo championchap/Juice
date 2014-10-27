@@ -5,28 +5,53 @@ import js.Browser;
 import js.html.CanvasElement;
 import js.html.Document;
 import js.html.Event;
+import js.html.ClientRect;
+import js.html.CanvasRenderingContext2D;
 
 // Haxe Stuff
 import haxe.Timer;
 
 // My Stuff
 import juice.input.Input;
-import juice.JG;
 import juice.utils.geometry.Rectangle;
 import juice.core.Scene;
 
 class Juice
 {
 
-	private var doc:Document;
+	private static var doc:Document;
 
-	private var canvas:CanvasElement;
-	private var canvasScaled:CanvasElement;
+	private static var canvas:CanvasElement;
+	private static var canvasScaled:CanvasElement;
 
-	private var windowSize:Rectangle;
+	private static var windowSize:Rectangle;
+
+	public static var input:Input;
+
+	public static var paused:Bool = false;
+
+	public static var fullScreen:Bool = false;
+
+	public static var clientRect:ClientRect;
+
+	public static var viewPort:Rectangle;
+	public static var scale:Float = 1;
+
+	public static var smoothing:Bool = false;
+
+	public static var backgroundColour:String = "#336699";
+
+	public static var frameRate:Int;
+
+	// Canvas Contexts
+	public static var canvasCTX:CanvasRenderingContext2D;
+	public static var canvasScaledCTX:CanvasRenderingContext2D;
+
+	public static var currentScene:Scene;
+	public static var nextScene:Scene;
+
 
 	public function new(width:Int, height:Int, scene:Scene, fps:Int = 60){
-		JG.game = this;
 		setup(width, height, scene, fps);
 	}
 
@@ -44,29 +69,29 @@ class Juice
 		canvasScaled.height = h;
 
 		windowSize = new Rectangle(0, 0, doc.body.clientWidth, doc.body.clientHeight);
-		JG.viewPort = new Rectangle(0, 0, canvas.width, canvas.height);
+		viewPort = new Rectangle(0, 0, canvas.width, canvas.height);
 
 		Browser.window.onresize = onResize;
 
-		JG.frameRate = fps;
+		frameRate = fps;
 
 		doc.body.onload = function (e:Event) {
-			JG.canvasCTX = canvas.getContext2d();
-			JG.canvasScaledCTX = canvasScaled.getContext2d();
+			canvasCTX = canvas.getContext2d();
+			canvasScaledCTX = canvasScaled.getContext2d();
 
 			doc.body.appendChild(canvas);
 			doc.body.appendChild(canvasScaled);
 
-			JG.canvasScaledCTX.imageSmoothingEnabled = JG.smoothing;
+			canvasScaledCTX.imageSmoothingEnabled = smoothing;
 
 			canvas.style.display = "none";
 
-			JG.clientRect = canvasScaled.getBoundingClientRect();
+			clientRect = canvasScaled.getBoundingClientRect();
 
-			JG.input = new Input(canvasScaled);
+			input = new Input(canvasScaled);
 
-			JG.currentScene = s;
-			JG.currentScene.start();
+			currentScene = s;
+			currentScene.start();
 
 			// start the main loop loop
 			var timer:Timer = new Timer(Std.int((1 / fps)*1000));
@@ -78,15 +103,15 @@ class Juice
 		resize();
 	}
 
-	private function resize():Void {
+	private static function resize():Void {
 		// we need to do this to be sure that the mouse position is recorded correctly
-		JG.clientRect = canvasScaled.getBoundingClientRect();
+		clientRect = canvasScaled.getBoundingClientRect();
 
 		windowSize = new Rectangle(0, 0, doc.body.clientWidth, doc.body.clientHeight);
 	}
 
-	public function toggleFullScreen():Void {
-		if(JG.fullScreen == false) {
+	public static function toggleFullScreen():Void {
+		if(fullScreen == false) {
 			canvasScaled.width = Std.int(windowSize.width);
 			canvasScaled.height = Std.int(windowSize.height);
 
@@ -108,7 +133,7 @@ class Juice
 				offX = (canvasScaled.width - viewWidth) / 2;
 				offY = 0;
 
-				JG.scale = canvas.height / canvasScaled.height;
+				scale = canvas.height / canvasScaled.height;
 			} else {
 				viewWidth = canvasScaled.width;
 				viewHeight = canvasScaled.width * (canvas.height / canvas.width);
@@ -116,23 +141,23 @@ class Juice
 				offX = 0;
 				offY = (canvasScaled.height - viewHeight) / 2;
 
-				JG.scale = canvas.width / canvasScaled.width;
+				scale = canvas.width / canvasScaled.width;
 			}
 
-			JG.viewPort = new Rectangle(offX, offY, viewWidth, viewHeight);
+			viewPort = new Rectangle(offX, offY, viewWidth, viewHeight);
 
-			JG.fullScreen = true;
+			fullScreen = true;
 		} else {
 			canvasScaled.style.position = "static";
 
 			canvasScaled.width = canvas.width;
 			canvasScaled.height = canvas.height;
 
-			JG.viewPort = new Rectangle(0, 0, canvas.width, canvas.height);
+			viewPort = new Rectangle(0, 0, canvas.width, canvas.height);
 
-			JG.scale = 1;
+			scale = 1;
 
-			JG.fullScreen = false;
+			fullScreen = false;
 		}
 
 		resize();
@@ -140,58 +165,58 @@ class Juice
 
 	private function loop():Void {
 		// swap out the scenes if there is one waiting
-		if(JG.nextScene != null) {
-			if(JG.currentScene != null){
-				JG.currentScene.end();
+		if(nextScene != null) {
+			if(currentScene != null){
+				currentScene.end();
 			}
 
-			JG.currentScene = JG.nextScene;
-			JG.nextScene = null;
-			JG.currentScene.start();
+			currentScene = nextScene;
+			nextScene = null;
+			currentScene.start();
 		}
 
 		update();
 		render();
 
 		// reset the input 
-		JG.input.update();
+		input.update();
 	}
 
 	private function update():Void {
-		if(JG.currentScene != null){
-			JG.currentScene.update();
+		if(currentScene != null){
+			currentScene.update();
 		}
 	}
 
 	private function render():Void {
-		JG.canvasCTX.clearRect(0, 0, canvas.width, canvas.height);
+		canvasCTX.clearRect(0, 0, canvas.width, canvas.height);
 
 		// update the background 
-		JG.canvasCTX.fillStyle = JG.backgroundColour;
-		JG.canvasCTX.fillRect(0,0,canvas.width,canvas.height);
+		canvasCTX.fillStyle = backgroundColour;
+		canvasCTX.fillRect(0,0,canvas.width,canvas.height);
 		
 		// draw the new one 
-		if(JG.currentScene != null){
-			JG.currentScene.render();
+		if(currentScene != null){
+			currentScene.render();
 		}
 
-		if(JG.fullScreen) {
+		if(fullScreen) {
 			// fill the borders in black 
-			JG.canvasScaledCTX.fillStyle = "#000000";
-			JG.canvasScaledCTX.fillRect(0, 0, canvasScaled.width, canvasScaled.height);
+			canvasScaledCTX.fillStyle = "#000000";
+			canvasScaledCTX.fillRect(0, 0, canvasScaled.width, canvasScaled.height);
 		}
 
 		// draw to the scaled canvas
-		JG.canvasScaledCTX.drawImage(
+		canvasScaledCTX.drawImage(
 			canvas, 
 			0, 
 			0, 
 			canvas.width, 
 			canvas.height, 
-			JG.viewPort.x, 
-			JG.viewPort.y, 
-			JG.viewPort.width, 
-			JG.viewPort.height
+			viewPort.x, 
+			viewPort.y, 
+			viewPort.width, 
+			viewPort.height
 		);
 
 	}
