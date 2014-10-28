@@ -6,7 +6,7 @@ import js.html.Event;
 import js.Lib;
 
 // my stuff
-import juice.data.Texture;
+import juice.graphics.Texture;
 
 class Assets
 {

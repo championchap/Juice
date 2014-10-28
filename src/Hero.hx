@@ -3,7 +3,7 @@ package ;
 import juice.core.Entity;
 import juice.graphics.Animator;
 import juice.data.Assets;
-import juice.utils.geometry.Point;
+import juice.geometry.Point;
 
 class Hero extends Entity
 {

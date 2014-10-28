@@ -4,7 +4,7 @@ package ;
 import juice.core.Scene;
 import juice.core.Entity;
 import juice.input.keyboard.Keyboard;
-import juice.data.Texture;
+import juice.graphics.Texture;
 import juice.data.Assets;
 import juice.graphics.Image;
 import juice.graphics.Animator;
@@ -76,8 +76,8 @@ class InGame extends Scene
 				hero.inAir = true;
 			}
 
-			hero.position.x = Juice.input.mouse.x;
-			hero.position.y = Juice.input.mouse.y;
+			//hero.position.x = Juice.input.mouse.x;
+			//hero.position.y = Juice.input.mouse.y;
 
 		}
 
