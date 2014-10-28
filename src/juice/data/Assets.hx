@@ -3,9 +3,10 @@ package juice.data;
 // javascript stuff
 import js.html.Image;
 import js.html.Event;
+import js.Lib;
 
 // my stuff
-import juice.data.Texture;
+import juice.graphics.Texture;
 
 class Assets
 {
@@ -82,9 +83,8 @@ class Assets
 		};
 
 		img.onerror = function (e:Event) {
-			// display an error message
 			// couldn't find the texture 
-			Juice.backgroundColour = juice.utils.ColourTools.RED;
+			Lib.alert('Error: Couldn\'t load the texture ${asset.url}');
 		};
 	}
 

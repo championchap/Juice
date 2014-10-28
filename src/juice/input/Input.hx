@@ -8,7 +8,7 @@ import js.html.KeyboardEvent;
 import js.html.MouseEvent;
 
 // my stuff
-import juice.utils.geometry.Point;
+import juice.geometry.Point;
 
 class Input
 {
@@ -157,10 +157,8 @@ class Input
 			my = e.layerY;
 		}
 
-		// trace("scale: " + JG.game.scale);
-
-		mousePos.x = (mx - (Juice.clientRect.left + Juice.viewPort.x)) * Juice.scale;
-		mousePos.y = (my - (Juice.clientRect.top + Juice.viewPort.y)) * Juice.scale;
+		mousePos.x = Std.int((mx - (Juice.clientRect.left + Juice.viewPort.x)) * Juice.scale);
+		mousePos.y = Std.int((my - (Juice.clientRect.top + Juice.viewPort.y)) * Juice.scale);
 
 	}
 

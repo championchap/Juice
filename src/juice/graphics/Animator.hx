@@ -1,8 +1,8 @@
 package juice.graphics;
 
 import juice.graphics.Image;
-import juice.data.Texture;
-import juice.utils.geometry.Rectangle;
+import juice.graphics.Texture;
+import juice.geometry.Rectangle;
 
 class Animation {
 	public var name:String;
