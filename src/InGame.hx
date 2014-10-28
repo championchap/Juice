@@ -59,7 +59,6 @@ class InGame extends Scene
 					hero.velocity.y = -20;
 				}
 			}
-			
 
 			if(!Juice.input.isDown(Keyboard.D) && !Juice.input.isDown(Keyboard.A)) {
 				hero.velocity.x = 0;
@@ -77,10 +76,8 @@ class InGame extends Scene
 				hero.inAir = true;
 			}
 
-			//hero.position.x = Juice.input.mouse.x;
-			//hero.position.y = Juice.input.mouse.y;
-
-			
+			hero.position.x = Juice.input.mouse.x;
+			hero.position.y = Juice.input.mouse.y;
 
 		}
 
