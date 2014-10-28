@@ -27,6 +27,8 @@ class Animator extends Image
 	public var frame:Int = 0;
 	private var isPlaying:Bool = false;
 
+	public var currentName:String = "";
+
 	private var current:Animation;
 	private var frameWidth:Int;
 	private var frameHeight:Int;
@@ -47,6 +49,7 @@ class Animator extends Image
 		isPlaying = true;
 
 		current = animations.get(name);
+		currentName = name;
 
 		if(restart) {
 			current.currentFrame = 0;

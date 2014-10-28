@@ -79,7 +79,13 @@ class Assets
 			textures.set(asset.name, tex);
 
 			updateProgress();
-		}
+		};
+
+		img.onerror = function (e:Event) {
+			// display an error message
+			// couldn't find the texture 
+			Juice.backgroundColour = juice.utils.ColourTools.RED;
+		};
 	}
 
 	private static function updateProgress():Void {
