@@ -13,6 +13,8 @@ class Hero extends Entity
 	public var acceleration:Point = new Point();
 	public var velocity:Point = new Point();
 
+	public var inAir:Bool = true;
+
 	public function new(){
 		super();
 

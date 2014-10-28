@@ -46,34 +46,41 @@ class InGame extends Scene
 
 			super.update();
 
-			if(Juice.input.isDown(Keyboard.W)) {
-				hero.velocity.y = -10;
-			}
-
 			if(Juice.input.isDown(Keyboard.A)) {
-				hero.velocity.x = -10;
-			}
-
-			if(Juice.input.isDown(Keyboard.S)) {
-				hero.velocity.y = 10;
+				hero.velocity.x = -7;
 			}
 
 			if(Juice.input.isDown(Keyboard.D)) {
-				hero.velocity.x = 10;
+				hero.velocity.x = 7;
+			}
+
+			if(hero.inAir == false){
+				if(Juice.input.isDown(Keyboard.SPACE)) {
+					hero.velocity.y = -20;
+				}
+			}
+			
+
+			if(!Juice.input.isDown(Keyboard.D) && !Juice.input.isDown(Keyboard.A)) {
+				hero.velocity.x = 0;
+				hero.acceleration.x = 0;
 			}
 
 			if(Juice.input.justPressed(Keyboard.F)) {
 				Juice.toggleFullScreen();
 			}
 
+			if(hero.position.y > 300){
+				hero.position.y = 300;
+				hero.inAir = false;
+			} else {
+				hero.inAir = true;
+			}
+
 			//hero.position.x = Juice.input.mouse.x;
 			//hero.position.y = Juice.input.mouse.y;
 
-			if(Juice.input.isDown(Keyboard.SPACE)) {
-				hero.play("back");
-			} else {
-				hero.play("idle");
-			}
+			
 
 		}
 
