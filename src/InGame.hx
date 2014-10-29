@@ -42,6 +42,10 @@ class InGame extends Scene
 			}
 		}
 
+		if(Juice.input.justPressed(Keyboard.F)) {
+			Juice.toggleFullScreen();
+		}
+
 		if(Juice.paused == false){
 
 			super.update();
@@ -65,19 +69,12 @@ class InGame extends Scene
 				hero.acceleration.x = 0;
 			}
 
-			if(Juice.input.justPressed(Keyboard.F)) {
-				Juice.toggleFullScreen();
-			}
-
 			if(hero.position.y > 300){
 				hero.position.y = 300;
 				hero.inAir = false;
 			} else {
 				hero.inAir = true;
 			}
-
-			//hero.position.x = Juice.input.mouse.x;
-			//hero.position.y = Juice.input.mouse.y;
 
 		}
 

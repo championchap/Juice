@@ -1,5 +1,7 @@
 package juice.geometry;
 
+import juice.utils.NumberTools;
+
 class Rectangle
 {
 
@@ -15,5 +17,9 @@ class Rectangle
 
 		width = Width;
 		height = Height;
+	}
+
+	public function area():Float {
+		return NumberTools.areaOfRectangle(width, height);
 	}
 }
