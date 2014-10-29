@@ -7,15 +7,26 @@ class Circle
 
 	public var x:Float;
 	public var y:Float;
-	public var radius:Float;
+	public var radius(default, set):Float;
+	public var diameter(default, set):Float;
 
 	public function new(x:Float = 0, y:Float = 0, radius:Float = 0){
 		this.x = xPos;
 		this.y = yPos;
-		this.radius = radius;
+		set_radius(radius);
 	}
 
 	public function area():Float {
 		return NumberTools.areaOfCircle(radius);
+	}
+
+	public function set_radius(r:Float):Void {
+		radius = r;
+		diameter = r * 2;
+	}
+
+	public function set_diameter(d:Float):Void {
+		diameter = d;
+		radius = r / 2;
 	}
 }
