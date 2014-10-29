@@ -280,6 +280,11 @@ class NumberTools
 		return Math.PI * (radius * radius);
 	}
 
+	// Returns the Circumference of a perfect Circle, no Ellipses!
+	public static function circumferenceOfCircle(diameter:Float):Float {
+		return Math.PI * diameter;
+	}
+
 	// Returns the area of an Elipse
 	public static function areaOfElipse(bigRadius:Float, smallRadius:Float):Float {
 		return Math.PI * (bigRadius * smallRadius);

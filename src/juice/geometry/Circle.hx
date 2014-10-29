@@ -9,6 +9,7 @@ class Circle
 	public var y:Float;
 	public var radius(default, set):Float;
 	public var diameter(default, set):Float;
+	public var circumference(get, set):Float;
 
 	public function new(x:Float = 0, y:Float = 0, radius:Float = 0){
 		this.x = xPos;
@@ -27,6 +28,15 @@ class Circle
 
 	public function set_diameter(d:Float):Void {
 		diameter = d;
-		radius = r / 2;
+		radius = d / 2;
+	}
+
+	public function get_circumference():Float {
+		return NumberTools.circumferenceOfCircle(diameter);
+	}
+
+	public function set_circumference(c:Float):Void {
+		circumference = c;
+		set_diameter(c / Math.PI);
 	}
 }
