@@ -59,7 +59,7 @@ class InGame extends Scene
 			}
 
 			if(hero.inAir == false){
-				if(Juice.input.isDown(Keyboard.SPACE)) {
+				if(Juice.input.justPressed(Keyboard.SPACE)) {
 					hero.velocity.y = -20;
 				}
 			}
