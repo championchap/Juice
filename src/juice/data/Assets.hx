@@ -87,7 +87,7 @@ class Assets
 
 		img.onerror = function (e:Event) {
 			// couldn't find the texture 
-			Lib.alert('Error: Couldn\'t load the texture ${asset.url}');
+			trace('Error: Couldn\'t load the texture ${asset.url}');
 		};
 	}
 

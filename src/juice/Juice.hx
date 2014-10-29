@@ -164,6 +164,7 @@ class Juice
 	}
 
 	private function loop():Void {
+
 		// swap out the scenes if there is one waiting
 		if(nextScene != null) {
 			if(currentScene != null){

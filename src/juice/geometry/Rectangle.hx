@@ -11,6 +11,8 @@ class Rectangle
 	public var width:Float;
 	public var height:Float;
 
+	public var area(get, null):Float;
+
 	public function new(X:Float, Y:Float, Width:Float, Height:Float){
 		x = X;
 		y = Y;
@@ -19,7 +21,7 @@ class Rectangle
 		height = Height;
 	}
 
-	public function area():Float {
+	private function get_area():Float {
 		return NumberTools.areaOfRectangle(width, height);
 	}
 }
