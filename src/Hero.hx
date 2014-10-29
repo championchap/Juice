@@ -4,6 +4,8 @@ import juice.core.Entity;
 import juice.graphics.Animator;
 import juice.data.Assets;
 import juice.geometry.Point;
+import juice.colliders.Collider;
+import juice.geometry.Rectangle;
 
 class Hero extends Entity
 {
@@ -25,6 +27,9 @@ class Hero extends Entity
 		sprite.play("idle");
 
 		add(sprite);
+
+		var coll:Collider = new Collider(new Rectangle(0, 0, 65, 105));
+		add(coll);
 	}
 
 	public function play(name:String):Void {
