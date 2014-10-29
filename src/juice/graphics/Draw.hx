@@ -33,8 +33,8 @@ class Draw
 			cropY,
 			cropWidth,
 			cropHeight,
-			x,
-			y,
+			Std.int(x),
+			Std.int(y),
 			width,
 			height
 		);

@@ -6,7 +6,7 @@ import flash.system.Capabilities;
 #end
 
 #if js
-import juice.utils.geometry.Point;
+import juice.geometry.Point;
 #end
 
 /**
@@ -278,6 +278,11 @@ class NumberTools
 	// Returns the Area of a perfect Circle, no Ellipses!
 	public static function areaOfCircle(radius:Float):Float {
 		return Math.PI * (radius * radius);
+	}
+
+	// Returns the Circumference of a perfect Circle, no Ellipses!
+	public static function circumferenceOfCircle(diameter:Float):Float {
+		return Math.PI * diameter;
 	}
 
 	// Returns the area of an Elipse

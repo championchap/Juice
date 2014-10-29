@@ -57,10 +57,13 @@ class Assets
 					loadTexture(asset);
 
 				case "SFX":
+					loadSFX(asset);
 
 				case "Music":
+					loadMusic(asset);
 
 				case "Data":
+					loadData(asset);
 			}
 		}
 	}
@@ -86,6 +89,18 @@ class Assets
 			// couldn't find the texture 
 			Lib.alert('Error: Couldn\'t load the texture ${asset.url}');
 		};
+	}
+
+	private static function loadSFX(asset:AssetData):Void {
+
+	}
+
+	private static function loadMusic(asset:AssetData):Void {
+		
+	}
+
+	private static function loadData(asset:AssetData):Void {
+		
 	}
 
 	private static function updateProgress():Void {
