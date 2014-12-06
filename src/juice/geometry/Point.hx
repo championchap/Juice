@@ -6,9 +6,9 @@ class Point
 	public var x:Float;
 	public var y:Float;
 
-	public function new(xPos:Float = 0, yPos:Float = 0){
-		x = xPos;
-		y = yPos;
+	public function new(x:Float = 0, y:Float = 0){
+		this.x = x;
+		this.y = y;
 	}
 
 }

@@ -12,8 +12,8 @@ class Circle
 	public var circumference(get, set):Float;
 
 	public function new(x:Float = 0, y:Float = 0, radius:Float = 0){
-		this.x = xPos;
-		this.y = yPos;
+		this.x = x;
+		this.y = y;
 		set_radius(radius);
 	}
 
