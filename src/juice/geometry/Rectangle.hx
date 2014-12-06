@@ -13,12 +13,12 @@ class Rectangle
 
 	public var area(get, null):Float;
 
-	public function new(X:Float, Y:Float, Width:Float, Height:Float){
-		x = X;
-		y = Y;
+	public function new(x:Float, x:Float, width:Float, height:Float){
+		this.x = x;
+		this.y = y;
 
-		width = Width;
-		height = Height;
+		this.width = width;
+		this.height = height;
 	}
 
 	private function get_area():Float {
