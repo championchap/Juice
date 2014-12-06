@@ -1,9 +1,10 @@
 package juice.data;
 
 // javascript stuff
+import js.Lib;
 import js.html.Image;
 import js.html.Event;
-import js.Lib;
+import js.html.XMLHttpRequest;
 
 // my stuff
 import juice.graphics.Texture;
@@ -100,7 +101,21 @@ class Assets
 	}
 
 	private static function loadData(asset:AssetData):Void {
-		
+		var request = new XMLHttpRequest();
+
+		request.open("GET", asset.url, true);
+
+		request.onload = function(e:Event) {
+			// trace it out for now, but store it somewhere nice like we do with Textures later 
+			trace(request.responseText);
+			updateProgress();
+		};
+
+		request.onerror = function(e:Event) {
+			trace('Error: Couldn\'t load the Data ${asset.url}');
+		};
+
+		request.send();
 	}
 
 	private static function updateProgress():Void {
