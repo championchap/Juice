@@ -13,7 +13,8 @@ class Assets
 {
 
 	// loaded assets
-	public static var textures:Map<String, Texture> = new Map<String, Texture>();
+	public static var textures:Map<String, Texture> = new Map();
+	public static var data:Map<String, String> = new Map();
 
 	// assets that have not yet been loaded 
 	private static var assetsToLoad:Array<AssetData> = [];
@@ -107,7 +108,7 @@ class Assets
 
 		request.onload = function(e:Event) {
 			// trace it out for now, but store it somewhere nice like we do with Textures later 
-			trace(request.responseText);
+			data.set(asset.name, request.responseText);
 			updateProgress();
 		};
 
