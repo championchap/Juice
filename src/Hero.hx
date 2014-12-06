@@ -20,20 +20,34 @@ class Hero extends Entity
 	public function new(){
 		super();
 
-		sprite = new Animator(Assets.textures.get("Hero"), 65, 105);
-		sprite.add("idle", [0, 1, 2, 3, 4, 5, 6, 7], 12);
-		sprite.add("back", [7, 4, 0], 12);
+		sprite = new Animator(Assets.textures.get("Run"), 56, 48);
 
-		sprite.play("idle");
+		sprite.add("run", [0, 1, 2, 3, 4, 5], 30);
+		sprite.add("flap", [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13], 30);
+
+		sprite.play("run");
 
 		add(sprite);
 
-		var coll:Collider = new Collider(new Rectangle(0, 0, 65, 105));
+		var coll:Collider = new Collider(new Rectangle(0, 0, 56, 48));
 		add(coll);
 	}
 
 	public function play(name:String):Void {
 		if(sprite.currentName != name) {
+
+			if(name == "flap") {
+				sprite.texture = Assets.textures.get("Flap");
+				sprite.frameHeight = 78;
+				sprite.frameWidth = 55;
+			}
+
+			if(name == "run") {
+				sprite.texture = Assets.textures.get("Run");
+				sprite.frameWidth = 56;
+				sprite.frameHeight = 48;
+			}
+
 			sprite.play(name, true);
 		}
 	}

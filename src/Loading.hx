@@ -13,7 +13,9 @@ class Loading extends Scene
 	override public function start():Void {
 		super.start();
 
-		Assets.addTexture("Hero", "textures/heroanim.png");
+		Assets.addTexture("Flap", "textures/flap.png");
+		Assets.addTexture("Run", "textures/run.png");
+		Assets.addData("Fart", "data/fart.txt");
 
 		Assets.load();
 	}

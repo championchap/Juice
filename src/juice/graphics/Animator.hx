@@ -30,8 +30,8 @@ class Animator extends Image
 	public var currentName:String = "";
 
 	private var current:Animation;
-	private var frameWidth:Int;
-	private var frameHeight:Int;
+	public var frameWidth:Int;
+	public var frameHeight:Int;
 
 	private var frameTime:Float = 0;
 

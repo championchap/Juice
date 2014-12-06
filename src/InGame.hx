@@ -30,6 +30,8 @@ class InGame extends Scene
 		hero.acceleration.y = 1;
 
 		this.add(hero);
+
+		trace(Assets.data.get("Fart"));
 	}
 
 	override public function update():Void {
@@ -61,6 +63,7 @@ class InGame extends Scene
 			if(hero.inAir == false){
 				if(Juice.input.justPressed(Keyboard.SPACE)) {
 					hero.velocity.y = -20;
+					hero.play("flap");
 				}
 			}
 
@@ -69,9 +72,10 @@ class InGame extends Scene
 				hero.acceleration.x = 0;
 			}
 
-			if(hero.position.y > 300){
-				hero.position.y = 300;
+			if(hero.position.y > 355){
+				hero.position.y = 355;
 				hero.inAir = false;
+				// hero.play("run");
 			} else {
 				hero.inAir = true;
 			}
