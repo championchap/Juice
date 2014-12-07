@@ -16,6 +16,10 @@ Coming soon! Demo projects will be available under a new repo.
 
 __Please don't use this yet! I'm still working on it, it probably doesn't work.__
 
+At the moment I am uploading the source of a sort of test project with Juice. 
+
+Inside src but above juice are the source files, check them out if you are interesed in how this works. 
+
 
 ## License ##
 
