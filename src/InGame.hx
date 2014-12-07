@@ -61,13 +61,13 @@ class InGame extends Scene
 			}
 
 			if(hero.inAir == false){
-				if(Juice.input.justPressed(Keyboard.SPACE)) {
+				if(Juice.input.justPressed(Keyboard.SPACE) || Juice.input) {
 					hero.velocity.y = -20;
 					hero.play("jump");
 					hero.inAir = true;
 				}
 			} else {
-				if(Juice.input.justPressed(Keyboard.SPACE)) {
+				if(Juice.input.justPressed(Keyboard.SPACE) || Juice.input.isMouseDown()) {
 					hero.velocity.y = -20;
 					hero.play("flap", true);
 				}

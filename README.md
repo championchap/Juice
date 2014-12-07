@@ -18,7 +18,7 @@ __Please don't use this yet! I'm still working on it, it probably doesn't work._
 
 At the moment I am uploading the source of a sort of test project with Juice. 
 
-Inside src but above juice are the source files, check them out if you are interesed in how this works. 
+Inside src but above juice are the [source files](https://github.com/championchap/Juice/tree/master/src), check them out if you are interesed in how this works. 
 
 
 ## License ##
