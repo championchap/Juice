@@ -63,7 +63,13 @@ class InGame extends Scene
 			if(hero.inAir == false){
 				if(Juice.input.justPressed(Keyboard.SPACE)) {
 					hero.velocity.y = -20;
-					hero.play("flap");
+					hero.play("jump");
+					hero.inAir = true;
+				}
+			} else {
+				if(Juice.input.justPressed(Keyboard.SPACE)) {
+					hero.velocity.y = -20;
+					hero.play("flap", true);
 				}
 			}
 
@@ -72,10 +78,11 @@ class InGame extends Scene
 				hero.acceleration.x = 0;
 			}
 
-			if(hero.position.y > 355){
+			if(hero.position.y >= 355 && hero.velocity.y >= 0){
 				hero.position.y = 355;
 				hero.inAir = false;
-				// hero.play("run");
+				hero.velocity.y = 0;
+				hero.play("run");
 			} else {
 				hero.inAir = true;
 			}

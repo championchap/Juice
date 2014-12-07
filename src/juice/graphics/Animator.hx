@@ -41,8 +41,8 @@ class Animator extends Image
 		this.frameHeight = frameHeight;
 	}
 
-	public function add(name:String, frames:Array<Int>, fps:Int):Void {
-		animations.set(name, new Animation(name, frames, fps, true));
+	public function add(name:String, frames:Array<Int>, fps:Int, loops:Bool = true):Void {
+		animations.set(name, new Animation(name, frames, fps, loops));
 	}
 
 	public function play(name:String, restart:Bool = false):Void {
@@ -72,7 +72,10 @@ class Animator extends Image
 				if(current.currentFrame < current.frames.length -1) {
 					current.currentFrame ++;
 				} else {
-					current.currentFrame = 0;
+					if(current.loop == true) {
+						current.currentFrame = 0;
+					}
+					
 				}
 
 				frameTime -= (1 / current.fps);
