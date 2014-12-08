@@ -16,6 +16,8 @@ class Hero extends Entity
 	public var velocity:Point = new Point();
 
 	public var inAir:Bool = true;
+	public var rolling:Bool = false;
+	public var rollingTimer:Int = 60;
 
 	public function new(){
 		super();
@@ -32,6 +34,9 @@ class Hero extends Entity
 
 		var coll:Collider = new Collider(new Rectangle(0, 0, 56, 48));
 		add(coll);
+
+		this.scale.x = 1;
+		this.scale.y = 1;
 		
 	}
 
@@ -70,6 +75,16 @@ class Hero extends Entity
 		position.x += velocity.x;
 		position.y += velocity.y;
 
-		rotation ++;
+		if(this.inAir == true && this.velocity.y > 0 && this.sprite.currentName == "flap"){
+			if(this.rotation < 30){
+				this.rotation ++;
+			}
+		}
+
+		if(this.inAir == false){
+			if(this.rotation != 0){
+				this.rotation = 0;
+			}
+		}
 	}
 }

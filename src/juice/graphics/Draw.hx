@@ -40,8 +40,8 @@ class Draw
 			cropY,
 			cropWidth,
 			cropHeight,
-			-(width/2),
-			-(height/2),
+			-width/2,
+			-height/2,
 			width,
 			height
 		);

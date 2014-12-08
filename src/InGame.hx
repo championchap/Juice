@@ -65,11 +65,13 @@ class InGame extends Scene
 					hero.velocity.y = -20;
 					hero.play("jump");
 					hero.inAir = true;
+					hero.rollingTimer = 60;
 				}
 			} else {
 				if(Juice.input.justPressed(Keyboard.SPACE) || Juice.input.isMouseDown()) {
 					hero.velocity.y = -20;
 					hero.play("flap", true);
+					hero.rotation = -25;
 				}
 			}
 
@@ -79,10 +81,21 @@ class InGame extends Scene
 			}
 
 			if(hero.position.y >= 355 && hero.velocity.y >= 0){
+				if(hero.rollingTimer > 0){
+					hero.rollingTimer --;
+				}
+
 				hero.position.y = 355;
 				hero.inAir = false;
 				hero.velocity.y = 0;
-				hero.play("run");
+
+				if(hero.rollingTimer == 0) {
+					hero.play("run");
+				} else {
+					hero.play("jump"); // not really jumping, just the same animation
+				}
+				
+
 			} else {
 				hero.inAir = true;
 			}
