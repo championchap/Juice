@@ -65,7 +65,9 @@ class TileMap extends Image
 					tx + this.entity.position.x, 
 					ty + this.entity.position.y, 
 					tileWidth, 
-					tileHeight 
+					tileHeight,
+					0,
+					this.entity.scale
 				);
 			}
 		}

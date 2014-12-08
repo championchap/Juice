@@ -36,10 +36,12 @@ class Image extends Component
 				bounds.y, 
 				bounds.width,
 				bounds.height,
-				this.entity.position.x + position.x,
-				this.entity.position.y + position.y,
+				this.entity.position.x + this.position.x,
+				this.entity.position.y + this.position.y,
 				bounds.width * scale.x,
-				bounds.height * scale.y
+				bounds.height * scale.y,
+				this.entity.rotation, 
+				this.entity.scale
 			);
 		}
 		

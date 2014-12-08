@@ -61,7 +61,7 @@ class InGame extends Scene
 			}
 
 			if(hero.inAir == false){
-				if(Juice.input.justPressed(Keyboard.SPACE) || Juice.input) {
+				if(Juice.input.justPressed(Keyboard.SPACE) || Juice.input.isMouseDown()) {
 					hero.velocity.y = -20;
 					hero.play("jump");
 					hero.inAir = true;

@@ -190,6 +190,7 @@ class Juice
 	}
 
 	private function render():Void {
+		//canvasCTX.save();
 		canvasCTX.clearRect(0, 0, canvas.width, canvas.height);
 
 		// update the background 
@@ -200,6 +201,8 @@ class Juice
 		if(currentScene != null){
 			currentScene.render();
 		}
+
+		//canvasCTX.restore();
 
 		if(fullScreen) {
 			// fill the borders in black 

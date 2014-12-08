@@ -32,6 +32,7 @@ class Hero extends Entity
 
 		var coll:Collider = new Collider(new Rectangle(0, 0, 56, 48));
 		add(coll);
+		
 	}
 
 	public function play(name:String, restart:Bool = false):Void {
@@ -46,7 +47,7 @@ class Hero extends Entity
 			sprite.texture = Assets.textures.get("Jump");
 			sprite.frameWidth = 41;
 			sprite.frameHeight = 41;
-			sprite.position.x = 10;
+			sprite.position.x = 0;
 			sprite.position.y = 0;
 		}
 
@@ -68,5 +69,7 @@ class Hero extends Entity
 
 		position.x += velocity.x;
 		position.y += velocity.y;
+
+		rotation ++;
 	}
 }

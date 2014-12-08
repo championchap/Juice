@@ -11,6 +11,8 @@ class Entity
 	public var scene:Scene;
 	public var name:String;
 	public var position:Point = new Point(0, 0);
+	public var rotation:Float = 0; // Rotation in Degrees
+	public var scale:Point = new Point(1, 1);
 	public var visible:Bool = true; // should this be drawn or not?
 	public var active:Bool = true; // shoud this be updated or not?
 	public var depth:Int;
