@@ -16,8 +16,12 @@ class Hero extends Entity
 	public var velocity:Point = new Point();
 
 	public var inAir:Bool = true;
+<<<<<<< HEAD
 	public var rolling:Bool = false;
 	public var rollingTimer:Int = 60;
+=======
+	public var rollTimer:Int = 60;
+>>>>>>> master
 
 	public function new(){
 		super();
@@ -74,6 +78,7 @@ class Hero extends Entity
 
 		position.x += velocity.x;
 		position.y += velocity.y;
+<<<<<<< HEAD
 
 		if(this.inAir == true && this.velocity.y > 0 && this.sprite.currentName == "flap"){
 			if(this.rotation < 30){
@@ -86,5 +91,7 @@ class Hero extends Entity
 				this.rotation = 0;
 			}
 		}
+=======
+>>>>>>> master
 	}
 }

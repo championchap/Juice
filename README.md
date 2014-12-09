@@ -7,6 +7,11 @@ Why Juice? Because Haxe is Orange and JS sounds a bit like Juice if you say it w
 At the moment Juice renders to a HTML Canvas. I'll think about adding WebGL support in the future, but right now I'm fairly happy with the Canvas, so don't wait up.
 
 
+## Requirements ##
+
+* [Haxe](http://haxe.org)
+* Probably will depend on [Actuate](https://github.com/openfl/actuate) at some point too. 
+
 ## Demo ##
 
 Coming soon! Demo projects will be available under a new repo.
