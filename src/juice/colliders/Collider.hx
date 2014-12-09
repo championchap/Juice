@@ -7,11 +7,12 @@ import juice.Juice;
 class Collider extends Component
 {
 
-	public var hitbox:Rectangle;
+	private var internalHitbox:Rectangle;
+	public var hitbox(get, set):Rectangle;
 
 	public function new(hitbox:Rectangle){
 		super();
-		this.visible = false;
+		this.visible = true;
 
 		this.hitbox = hitbox;
 		this.position.x = hitbox.x;
@@ -20,16 +21,24 @@ class Collider extends Component
 
 	override public function update():Void {
 		super.update();
+	}
 
-		this.position = this.entity.position;
+	override public function render():Void {
+		super.render();
 
-		if(this.position.x <= 0) {
-			this.entity.position.x = 0;
-		}
-
-		if(this.position.x >= Juice.viewPort.width - hitbox.width) {
-			this.entity.position.x = Juice.viewPort.width - hitbox.width;
-		}
+		juice.graphics.Draw.drawFilledRect(hitbox, juice.utils.ColourTools.WHITE);
 	}
 	
+	public function get_hitbox():Rectangle {
+		return new Rectangle(	
+			entity.position.x + this.position.x,
+			entity.position.y + this.position.y,
+			internalHitbox.width * Math.abs(entity.scale.x), 
+			internalHitbox.height * Math.abs(entity.scale.y) 
+		);
+	}
+
+	public function set_hitbox(box:Rectangle):Rectangle {
+		return internalHitbox = box;
+	}
 }

@@ -30,7 +30,7 @@ class Draw
 	public static function drawImage(image:Image, cropX:Float, cropY:Float, cropWidth:Float, cropHeight:Float, x:Float, y:Float, width:Float, height:Float, rotation:Float, scale:Point):Void {
 		Juice.canvasCTX.save();
 		
-		Juice.canvasCTX.translate(x + (width/2), y + (height/2));
+		Juice.canvasCTX.translate(x, y);
 		Juice.canvasCTX.scale(scale.x, scale.y);
 		Juice.canvasCTX.rotate(NumberTools.degreesToRadians(rotation));
 
@@ -40,8 +40,8 @@ class Draw
 			cropY,
 			cropWidth,
 			cropHeight,
-			-width/2,
-			-height/2,
+			0,
+			0,
 			width,
 			height
 		);

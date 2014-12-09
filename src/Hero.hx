@@ -18,6 +18,8 @@ class Hero extends Entity
 	public var inAir:Bool = true;
 	public var rollTimer:Int = 60;
 
+	public var collider:Collider;
+
 	public function new(){
 		super();
 
@@ -31,12 +33,11 @@ class Hero extends Entity
 
 		add(sprite);
 
-		var coll:Collider = new Collider(new Rectangle(0, 0, 56, 48));
-		add(coll);
+		collider = new Collider(new Rectangle(0, 0, 56, 48));
+		add(collider);
 
-		this.scale.x = 1;
-		this.scale.y = 1;
-		
+		this.scale.x = 3;
+		this.scale.y = 3;
 	}
 
 	public function play(name:String, restart:Bool = false):Void {

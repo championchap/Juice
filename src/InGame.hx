@@ -54,12 +54,15 @@ class InGame extends Scene
 
 			if(Juice.input.isDown(Keyboard.A)) {
 				hero.velocity.x = -7;
-				hero.scale.x = -1;
+				
+				if(hero.scale.x > 0){
+					hero.scale.x = -hero.scale.x;
+				}
 			}
 
 			if(Juice.input.isDown(Keyboard.D)) {
 				hero.velocity.x = 7;
-				hero.scale.x = 1;
+				hero.scale.x = Math.abs(hero.scale.x);
 			}
 
 			if(hero.inAir == false){
@@ -93,12 +96,12 @@ class InGame extends Scene
 				hero.acceleration.x = 0;
 			}
 
-			if(hero.position.y >= 355 && hero.velocity.y >= 0){
+			if(hero.collider.hitbox.y + hero.collider.hitbox.height >= 355 && hero.velocity.y >= 0){
 				if(hero.rollTimer > 0){
 					hero.rollTimer --;
 				}
 
-				hero.position.y = 355;
+				hero.position.y = 355 - (hero.collider.hitbox.height / 2);
 				hero.inAir = false;
 				hero.velocity.y = 0;
 				hero.rotation = 0;
