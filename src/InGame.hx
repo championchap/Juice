@@ -54,10 +54,12 @@ class InGame extends Scene
 
 			if(Juice.input.isDown(Keyboard.A)) {
 				hero.velocity.x = -7;
+				hero.scale.x = -1;
 			}
 
 			if(Juice.input.isDown(Keyboard.D)) {
 				hero.velocity.x = 7;
+				hero.scale.x = 1;
 			}
 
 			if(hero.inAir == false){
