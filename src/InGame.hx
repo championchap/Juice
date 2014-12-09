@@ -65,11 +65,7 @@ class InGame extends Scene
 					hero.velocity.y = -20;
 					hero.play("jump");
 					hero.inAir = true;
-<<<<<<< HEAD
-					hero.rollingTimer = 60;
-=======
 					hero.rollTimer = 60;
->>>>>>> master
 				}
 
 				if(hero.rollTimer != 0){
@@ -80,9 +76,6 @@ class InGame extends Scene
 				if(Juice.input.justPressed(Keyboard.SPACE) || Juice.input.isMouseDown()) {
 					hero.velocity.y = -20;
 					hero.play("flap", true);
-<<<<<<< HEAD
-					hero.rotation = -25;
-=======
 					hero.rotation = -20;
 				}
 
@@ -90,7 +83,6 @@ class InGame extends Scene
 					if(hero.rotation < 45){
 						hero.rotation ++;
 					}
->>>>>>> master
 				}
 			}
 
@@ -100,23 +92,13 @@ class InGame extends Scene
 			}
 
 			if(hero.position.y >= 355 && hero.velocity.y >= 0){
-				if(hero.rollingTimer > 0){
-					hero.rollingTimer --;
+				if(hero.rollTimer > 0){
+					hero.rollTimer --;
 				}
 
 				hero.position.y = 355;
 				hero.inAir = false;
 				hero.velocity.y = 0;
-<<<<<<< HEAD
-
-				if(hero.rollingTimer == 0) {
-					hero.play("run");
-				} else {
-					hero.play("jump"); // not really jumping, just the same animation
-				}
-				
-
-=======
 				hero.rotation = 0;
 
 				if(hero.rollTimer != 0){
@@ -124,8 +106,6 @@ class InGame extends Scene
 				} else {
 					hero.play("run");
 				}
-				
->>>>>>> master
 			} else {
 				hero.inAir = true;
 			}
