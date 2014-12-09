@@ -16,6 +16,7 @@ class Hero extends Entity
 	public var velocity:Point = new Point();
 
 	public var inAir:Bool = true;
+	public var rollTimer:Int = 60;
 
 	public function new(){
 		super();
@@ -69,7 +70,5 @@ class Hero extends Entity
 
 		position.x += velocity.x;
 		position.y += velocity.y;
-
-		rotation ++;
 	}
 }
