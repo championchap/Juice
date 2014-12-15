@@ -16,7 +16,10 @@ class ColourTools
 	public static inline var INDIGO:String 	= "#4B0082";
 	public static inline var VIOLET:String 	= "#EE82EE";
 
-	public function new(){
-		
+
+	public static function randomColour():String {
+		var result:String = "#";
+
+		return result += StringTools.hex(Std.int(0xffffff * Math.random()), 6);
 	}
 }
