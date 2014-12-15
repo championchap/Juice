@@ -16,6 +16,7 @@ At the moment Juice renders to a HTML Canvas. I'll think about adding WebGL supp
 * Sound 
 * Tile Maps 
 * Physics 
+* Particles 
 * Camera 
 * Tweens 
 * Groups 
