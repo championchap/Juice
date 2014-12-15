@@ -26,7 +26,7 @@ class Collider extends Component
 	override public function render():Void {
 		super.render();
 
-		juice.graphics.Draw.drawFilledRect(hitbox, juice.utils.ColourTools.WHITE);
+		// juice.graphics.Draw.drawFilledRect(hitbox, juice.utils.ColourTools.WHITE);
 	}
 	
 	public function get_hitbox():Rectangle {

@@ -50,6 +50,9 @@ class Juice
 	public static var currentScene:Scene;
 	public static var nextScene:Scene;
 
+	private static var prevTime:Float = 0;
+	public static var deltaTime:Float = 0;
+
 
 	public function new(width:Int, height:Int, scene:Scene, fps:Int = 60){
 		setup(width, height, scene, fps);
@@ -94,8 +97,10 @@ class Juice
 			currentScene.start();
 
 			// start the main loop loop
-			var timer:Timer = new Timer(Std.int((1 / fps)*1000));
-			timer.run = loop;
+			//var timer:Timer = new Timer(Std.int((1 / fps)*1000));
+			//timer.run = loop;
+
+			Browser.window.requestAnimationFrame(loop);
 		}
 	}
 
@@ -163,7 +168,13 @@ class Juice
 		resize();
 	}
 
-	private function loop():Void {
+	private function loop(timestamp:Float):Void {
+
+		if(prevTime == 0) {
+			prevTime = timestamp;
+		}
+
+		deltaTime = timestamp - prevTime;
 
 		// swap out the scenes if there is one waiting
 		if(nextScene != null) {
@@ -181,6 +192,12 @@ class Juice
 
 		// reset the input 
 		input.update();
+
+		trace(deltaTime);
+
+		prevTime = timestamp;
+
+		Browser.window.requestAnimationFrame(loop);
 	}
 
 	private function update():Void {
