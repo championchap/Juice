@@ -115,6 +115,8 @@ class Juice
 		windowSize = new Rectangle(0, 0, doc.body.clientWidth, doc.body.clientHeight);
 	}
 
+	// TODO: The full screen canvas would probably be faster if scaled with CSS
+	// Should allow for some GPU accelerated scaling, which I think is missing right now 
 	public static function toggleFullScreen():Void {
 		if(fullScreen == false) {
 			canvasScaled.width = Std.int(windowSize.width);
@@ -193,7 +195,7 @@ class Juice
 		// reset the input 
 		input.update();
 
-		trace(deltaTime);
+		// trace(deltaTime);
 
 		prevTime = timestamp;
 
@@ -206,6 +208,9 @@ class Juice
 		}
 	}
 
+	// TODO: Figure out how and where to do Batched Rendering
+	// TODO: Group layers into their own Canvases
+	// TODO: Keep track of the areas of the Canvas that are updated and only redraw those parts 
 	private function render():Void {
 		//canvasCTX.save();
 		canvasCTX.clearRect(0, 0, canvas.width, canvas.height);
