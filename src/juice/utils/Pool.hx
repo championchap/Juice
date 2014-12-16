@@ -1,7 +1,9 @@
 package juice.utils;
 
-// TODO: Make the Generic Pool work, shouldn't be too hard
-// Maybe shouldn't be in utils, but we can move it later 
+// A Simple Object Pooling class
+// Creating and destroying objects all the time is hard on the garbage collector
+// use this to recycle them 
+
 class Pool<T>
 {
 
@@ -12,17 +14,25 @@ class Pool<T>
 		size = length;
 	}
 
+	// completely fill the pool with instances of this class 
 	public function fill(c:Class<T>):Void {
 		while(pool.length < size){
 			pool.push(Type.createInstance(c, []));
 		}
 	}
 
+	// pull an instance from the pool
 	public function get():T {
 		return pool.shift();
 	}
 
+	// return an instance back to the pool
 	public function put(thing:T):Void {
 		pool.push(thing);
+	}
+
+	// destroy the pool but leave the size alone for re-filling 
+	public function destroy():Void {
+		pool = [];
 	}
 }
