@@ -8,6 +8,8 @@ import juice.geometry.Rectangle;
 import juice.geometry.Point;
 import juice.utils.NumberTools;
 
+// This is where we actually do all of the drawing to the canvas context 
+// Don't to any of your own drawing, use this instead 
 class Draw
 {
 	public function new(){
