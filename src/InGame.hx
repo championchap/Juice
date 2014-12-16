@@ -10,12 +10,14 @@ import juice.graphics.Image;
 import juice.graphics.Animator;
 import juice.graphics.TileMap;
 import juice.utils.ColourTools;
+import juice.utils.Pool;
 import juice.Juice;
 
 class InGame extends Scene
 {
 
 	private var hero:Hero;
+	private var pool:Pool<Entity>;
 
 	public function new(){
 		super();
@@ -26,12 +28,12 @@ class InGame extends Scene
 
 		Juice.backgroundColour = ColourTools.GREY;
 
+		pool = new Pool(100);
+
 		hero = new Hero();
 		hero.acceleration.y = 1;
 
 		this.add(hero);
-
-		trace(Assets.data.get("Fart"));
 	}
 
 	override public function update():Void {
