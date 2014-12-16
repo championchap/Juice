@@ -22,6 +22,7 @@ At the moment Juice renders to a HTML Canvas. I'll think about adding WebGL supp
 * Groups 
 * Collision Detection 
 * Object Pools 
+* Preloader
 
 
 ## Requirements
