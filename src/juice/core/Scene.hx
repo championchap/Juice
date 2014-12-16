@@ -2,6 +2,9 @@ package juice.core;
 
 import juice.core.Entity;
 
+// Perhaps Scene should actually extend Group? 
+// Though I do want to keep extension to a minimum as it gets complicated 
+
 class Scene
 {
 
