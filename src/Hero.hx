@@ -36,8 +36,8 @@ class Hero extends Entity
 		collider = new Collider(new Rectangle(0, 0, 56, 48));
 		add(collider);
 
-		this.scale.x = 3;
-		this.scale.y = 3;
+		this.scale.x = 1;
+		this.scale.y = 1;
 	}
 
 	public function play(name:String, restart:Bool = false):Void {
