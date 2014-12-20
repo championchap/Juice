@@ -11,6 +11,7 @@ import juice.graphics.Animator;
 import juice.graphics.TileMap;
 import juice.utils.ColourTools;
 import juice.utils.Pool;
+import juice.geometry.Point;
 import juice.Juice;
 
 class InGame extends Scene
@@ -123,6 +124,8 @@ class InGame extends Scene
 
 	override public function render():Void {
 		super.render();
+
+		juice.graphics.Draw.line(new Point(0, 0), Juice.input.mouse, ColourTools.WHITE, 2);
 
 		juice.graphics.Draw.text("Hello World", "Helvetica", "24pt", 2, new juice.geometry.Point(10, 100), ColourTools.WHITE, ColourTools.BLACK);
 		// juice.graphics.Draw.drawText("Hello World", "Helvetica", "24pt", new juice.geometry.Point(10, 100));

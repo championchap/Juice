@@ -51,6 +51,15 @@ class Draw
 		Juice.canvasCTX.restore();
 	}
 
+	public static function line(from:Point, to:Point, colour:String, thickness:Float):Void {
+		Juice.canvasCTX.beginPath(); // This is important, previously drawn lines don't get cleared without it!
+		Juice.canvasCTX.strokeStyle = colour;
+		Juice.canvasCTX.lineWidth = thickness;
+		Juice.canvasCTX.moveTo(from.x, from.y);
+		Juice.canvasCTX.lineTo(to.x, to.y);
+		Juice.canvasCTX.stroke();
+	}
+
 	// TODO: text origin seems to be set to bottom left, should try and make it top left 
 	// A combined Stroke and Fill text function 
 	public static function text(text:String, font:String, size:String, strokeThickness:Float, position:Point, fillColour:String, strokeColour:String):Void {
