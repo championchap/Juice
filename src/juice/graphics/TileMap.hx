@@ -56,7 +56,7 @@ class TileMap extends Image
 					py = Math.floor(tileData[i] / width) * tileHeight;
 				}
 
-				Draw.drawImage(
+				Draw.image(
 					this.texture.image, 
 					px, 
 					py, 

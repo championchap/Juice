@@ -30,7 +30,7 @@ class Image extends Component
 		super.render();
 
 		if(texture != null) {
-			Draw.drawImage(
+			Draw.image(
 				texture.image, 
 				bounds.x,
 				bounds.y, 
