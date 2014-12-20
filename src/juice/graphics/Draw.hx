@@ -51,4 +51,11 @@ class Draw
 		Juice.canvasCTX.restore();
 	}
 
+	// TODO: text origin seems to be set to bottom left, should try and make it top left 
+	public static function drawText(text:String, font:String, size:String, position:Point, colour:String):Void {
+		Juice.canvasCTX.fillStyle = colour;
+		Juice.canvasCTX.font = '$size $font';
+		Juice.canvasCTX.fillText(text, position.x, position.y);
+	}
+
 }
