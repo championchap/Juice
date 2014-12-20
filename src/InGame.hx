@@ -124,7 +124,7 @@ class InGame extends Scene
 	override public function render():Void {
 		super.render();
 
-		juice.graphics.Draw.strokeText("Hello World", "Helvetica", "24pt", new juice.geometry.Point(10, 100), ColourTools.WHITE);
+		juice.graphics.Draw.text("Hello World", "Helvetica", "24pt", 2, new juice.geometry.Point(10, 100), ColourTools.WHITE, ColourTools.BLACK);
 		// juice.graphics.Draw.drawText("Hello World", "Helvetica", "24pt", new juice.geometry.Point(10, 100));
 	}
 

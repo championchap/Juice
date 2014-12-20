@@ -52,14 +52,21 @@ class Draw
 	}
 
 	// TODO: text origin seems to be set to bottom left, should try and make it top left 
+	// A combined Stroke and Fill text function 
+	public static function text(text:String, font:String, size:String, strokeThickness:Float, position:Point, fillColour:String, strokeColour:String):Void {
+		fillText(text, font, size, position, fillColour);
+		strokeText(text, font, size, strokeThickness, position, strokeColour);
+	}
+
 	public static function fillText(text:String, font:String, size:String, position:Point, colour:String):Void {
 		Juice.canvasCTX.fillStyle = colour;
 		Juice.canvasCTX.font = '$size $font';
 		Juice.canvasCTX.fillText(text, position.x, position.y);
 	}
 
-	public static function strokeText(text:String, font:String, size:String, position:Point, colour:String):Void {
+	public static function strokeText(text:String, font:String, size:String, thickness:Float, position:Point, colour:String):Void {
 		Juice.canvasCTX.strokeStyle = colour;
+		Juice.canvasCTX.lineWidth = thickness;
 		Juice.canvasCTX.font = '$size $font';
 		Juice.canvasCTX.strokeText(text, position.x, position.y);
 	}
