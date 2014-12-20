@@ -62,6 +62,7 @@ class Draw
 
 	// TODO: text origin seems to be set to bottom left, should try and make it top left 
 	// A combined Stroke and Fill text function 
+	// These are not a good replacement for bitmap font drawing, but they will do for now and should be included 
 	public static function text(text:String, font:String, size:String, strokeThickness:Float, position:Point, fillColour:String, strokeColour:String):Void {
 		fillText(text, font, size, position, fillColour);
 		strokeText(text, font, size, strokeThickness, position, strokeColour);
