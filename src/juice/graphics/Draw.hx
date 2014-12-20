@@ -52,10 +52,16 @@ class Draw
 	}
 
 	// TODO: text origin seems to be set to bottom left, should try and make it top left 
-	public static function drawText(text:String, font:String, size:String, position:Point, colour:String):Void {
+	public static function fillText(text:String, font:String, size:String, position:Point, colour:String):Void {
 		Juice.canvasCTX.fillStyle = colour;
 		Juice.canvasCTX.font = '$size $font';
 		Juice.canvasCTX.fillText(text, position.x, position.y);
+	}
+
+	public static function strokeText(text:String, font:String, size:String, position:Point, colour:String):Void {
+		Juice.canvasCTX.strokeStyle = colour;
+		Juice.canvasCTX.font = '$size $font';
+		Juice.canvasCTX.strokeText(text, position.x, position.y);
 	}
 
 }
