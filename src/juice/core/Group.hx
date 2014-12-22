@@ -1,13 +1,11 @@
 package juice.core;
 
+// Maybe we don't really need a Group? Hmm.. duno 
+
 // Group should probably use Pool internally?
 // Should also allow us to do things like collisions 
 class Group
 {
-
-	// There is no Basic Object that other stuff extends in Juice
-	// So maybe the solution can be found in this article about using enums for mixed type iterables
-	// http://old.haxe.org/doc/cross/more_on_enum?lang=en
 
 	// Making this Dynamic for now, just because it's easier 
 	private var members:Array<Dynamic> = [];

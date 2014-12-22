@@ -97,10 +97,12 @@ class Juice
 			currentScene.start();
 
 			// start the main loop loop
-			//var timer:Timer = new Timer(Std.int((1 / fps)*1000));
-			//timer.run = loop;
+			var timer:Timer = new Timer(Std.int((1 / fps)*1000));
+			timer.run = loop;
 
-			Browser.window.requestAnimationFrame(loop);
+			// TODO: This has caused some problems
+			// Can't set the frame rate and spritesheet animations run at the wrong speed 
+			// Browser.window.requestAnimationFrame(loop);
 		}
 	}
 
@@ -170,13 +172,7 @@ class Juice
 		resize();
 	}
 
-	private function loop(timestamp:Float):Void {
-
-		if(prevTime == 0) {
-			prevTime = timestamp;
-		}
-
-		deltaTime = timestamp - prevTime;
+	private function loop():Void {
 
 		// swap out the scenes if there is one waiting
 		if(nextScene != null) {
@@ -195,11 +191,11 @@ class Juice
 		// reset the input 
 		input.update();
 
-		// trace(deltaTime);
+		// trace(timestamp - prevTime);
+		// deltaTime = timestamp - prevTime;
+		// prevTime = timestamp;
 
-		prevTime = timestamp;
-
-		Browser.window.requestAnimationFrame(loop);
+		// Browser.window.requestAnimationFrame(loop);
 	}
 
 	private function update():Void {
