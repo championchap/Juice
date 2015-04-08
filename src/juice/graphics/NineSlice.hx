@@ -7,11 +7,10 @@ import juice.graphics.Draw;
 import juice.geometry.Point;
 import juice.core.Entity;
 import juice.utils.ColourTools;
+import juice.text.Fonts;
 
 class NineSlice extends Entity
 {
-
-	public var title:String = "Window";
 
 	public var width:Int;
 	public var height:Int;
@@ -100,26 +99,14 @@ class NineSlice extends Entity
 
 		// draw the image
 		Draw.patternRect(middle, juice.data.Assets.textures.get("Pattern").image);
-		Draw.filledRect(corner_tl, ColourTools.BLACK);
-		Draw.filledRect(corner_tr, ColourTools.BLACK);
-		Draw.filledRect(corner_bl, ColourTools.BLACK);
-		Draw.filledRect(corner_br, ColourTools.BLACK);
+		Draw.filledRect(corner_tl, ColourTools.WHITE);
+		Draw.filledRect(corner_tr, ColourTools.WHITE);
+		Draw.filledRect(corner_bl, ColourTools.WHITE);
+		Draw.filledRect(corner_br, ColourTools.WHITE);
 		Draw.filledRect(top, ColourTools.WHITE);
 		Draw.filledRect(right, ColourTools.WHITE);
 		Draw.filledRect(bottom, ColourTools.WHITE);
 		Draw.filledRect(left, ColourTools.WHITE);
-
-		if(title != null && title != "") {
-			Draw.text(
-				title, 
-				"Helvetica", 
-				"10pt", 
-				0, 
-				new Point(position.x + (width / 2), position.y + (borderThickness.top / 1.5)), 
-				ColourTools.BLACK,
-				ColourTools.BLACK
-			);
-		}
 	}
 }
 

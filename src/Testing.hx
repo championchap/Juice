@@ -29,7 +29,7 @@ class Testing extends Scene
 
 		slice.position.x = slice.position.y = 100;
 		slice.borderThickness.left = 6;
-		slice.borderThickness.top = 18;
+		slice.borderThickness.top = 24;
 		slice.borderThickness.right = 6;
 		slice.borderThickness.bottom = 6;
 
@@ -43,6 +43,15 @@ class Testing extends Scene
 
 	override public function update():Void {
 		super.update();
+
+		if(Juice.input.isMouseDown()) {
+			slice.position.x = Juice.input.mouse.x - (slice.width / 2);
+			slice.position.y = Juice.input.mouse.y - (slice.borderThickness.top / 2);
+		}
+
+		if(Juice.input.justPressed(Keys.F)) {
+			Juice.toggleFullScreen();
+		}
 	}
 
 	override public function render():Void {
