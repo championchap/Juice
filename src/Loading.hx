@@ -14,9 +14,11 @@ class Loading extends Scene
 		super.start();
 
 		// Hero 
-		Assets.addTexture("Flap", "textures/flap.png");
-		Assets.addTexture("Run", "textures/run.png");
-		Assets.addTexture("Jump", "textures/jump.png");
+		//Assets.addTexture("Flap", "textures/flap.png");
+		//Assets.addTexture("Run", "textures/run.png");
+		//Assets.addTexture("Jump", "textures/jump.png");
+		Assets.addTexture("Hero", "textures/hero.png");
+		Assets.addTexture("Pattern", "textures/pattern.png");
 
 		Assets.load();
 	}
@@ -27,7 +29,7 @@ class Loading extends Scene
 		if(Assets.percent < 100){
 			// display % loaded
 		} else {
-			Juice.nextScene = new InGame();
+			Juice.nextScene = new Testing();
 		}
 	}
 }

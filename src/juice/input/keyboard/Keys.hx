@@ -1,6 +1,6 @@
 package juice.input.keyboard;
 
-class Keyboard
+class Keys
 {
 	public static inline var A:Int = 65;
 	public static inline var B:Int = 66;

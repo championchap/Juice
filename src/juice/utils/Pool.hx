@@ -1,6 +1,7 @@
 package juice.utils;
 
 // A Simple Object Pooling class
+// 
 // Creating and destroying objects all the time is hard on the garbage collector
 // use this to recycle them 
 

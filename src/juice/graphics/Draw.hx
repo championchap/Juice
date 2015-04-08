@@ -81,4 +81,8 @@ class Draw
 		Juice.canvasCTX.strokeText(text, position.x, position.y);
 	}
 
+	public static function patternRect(rect:Rectangle, image:Image, type:String = "repeat"):Void {
+		Juice.canvasCTX.fillStyle = Juice.canvasCTX.createPattern(image, type);
+		Juice.canvasCTX.fillRect(rect.x, rect.y, rect.width, rect.height);
+	}
 }

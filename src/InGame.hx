@@ -3,7 +3,7 @@ package ;
 // my stuff 
 import juice.core.Scene;
 import juice.core.Entity;
-import juice.input.keyboard.Keyboard;
+import juice.input.keyboard.Keys;
 import juice.graphics.Texture;
 import juice.data.Assets;
 import juice.graphics.Image;
@@ -39,7 +39,7 @@ class InGame extends Scene
 
 	override public function update():Void {
 
-		if(Juice.input.justPressed(Keyboard.P)) {
+		if(Juice.input.justPressed(Keys.P)) {
 			if(Juice.paused == false) {
 				Juice.paused = true;
 			} else {
@@ -47,7 +47,7 @@ class InGame extends Scene
 			}
 		}
 
-		if(Juice.input.justPressed(Keyboard.F)) {
+		if(Juice.input.justPressed(Keys.F)) {
 			Juice.toggleFullScreen();
 		}
 
@@ -55,7 +55,7 @@ class InGame extends Scene
 
 			super.update();
 
-			if(Juice.input.isDown(Keyboard.A)) {
+			if(Juice.input.isDown(Keys.A)) {
 				hero.velocity.x = -7;
 				
 				if(hero.scale.x > 0){
@@ -63,13 +63,13 @@ class InGame extends Scene
 				}
 			}
 
-			if(Juice.input.isDown(Keyboard.D)) {
+			if(Juice.input.isDown(Keys.D)) {
 				hero.velocity.x = 7;
 				hero.scale.x = Math.abs(hero.scale.x);
 			}
 
 			if(hero.inAir == false){
-				if(Juice.input.justPressed(Keyboard.SPACE) || Juice.input.isMouseDown()) {
+				if(Juice.input.justPressed(Keys.SPACE) || Juice.input.isMouseDown()) {
 					hero.velocity.y = -20;
 					hero.play("jump");
 					hero.inAir = true;
@@ -81,7 +81,7 @@ class InGame extends Scene
 				}
 
 			} else {
-				if(Juice.input.justPressed(Keyboard.SPACE) || Juice.input.isMouseDown()) {
+				if(Juice.input.justPressed(Keys.SPACE) || Juice.input.isMouseDown()) {
 					hero.velocity.y = -20;
 					hero.play("flap", true);
 					hero.rotation = -20;
@@ -94,7 +94,7 @@ class InGame extends Scene
 				}
 			}
 
-			if(!Juice.input.isDown(Keyboard.D) && !Juice.input.isDown(Keyboard.A)) {
+			if(!Juice.input.isDown(Keys.D) && !Juice.input.isDown(Keys.A)) {
 				hero.velocity.x = 0;
 				hero.acceleration.x = 0;
 			}

@@ -22,4 +22,37 @@ class ColourTools
 
 		return result += StringTools.hex(Std.int(0xffffff * Math.random()), 6);
 	}
+
+	// TODO, everything past this point! 
+	public static function gradient() {
+
+	}
+
+	public static function interpolateBetween():Void {
+		
+	}
+
+	public static function RGBToHex():Void {
+
+	}
+
+	public static function hexToRGB():Void {
+
+	}
+
+	public static function RGBToHSL():Void {
+
+	}
+
+	public static function HSLToRGB():Void {
+
+	}
+
+	public static function HexToHSL():Void {
+
+	}
+
+	public static function HSLToHex():Void {
+
+	}
 }

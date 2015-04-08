@@ -11,9 +11,10 @@ At the moment Juice renders to a HTML Canvas. I'll think about adding WebGL supp
 
 * Canvas Rendering 
 * Keyboard and Mouse Input 
-* Full Screen Scaling 
-* Sprites 
-* Sound 
+* Full Screen
+* Sprites
+* Spritesheet animation
+* Sounds
 * Tile Maps 
 * Physics 
 * Particles 
