@@ -57,7 +57,7 @@ class Testing extends Scene
 			slice.position.y = Juice.input.mouse.y - (slice.borderThickness.top / 2);
 		}
 
-		label.position.x = slice.position.x + 6;
+		label.position.x = slice.position.x + (slice.width / 2) - (label.width / 2);
 		label.position.y = slice.position.y + 16;
 
 		if(Juice.input.justPressed(Keys.F)) {

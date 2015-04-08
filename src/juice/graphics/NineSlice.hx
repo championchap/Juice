@@ -15,7 +15,12 @@ class NineSlice extends Entity
 	public var width:Int;
 	public var height:Int;
 
+	// this way is probs pretty dumb 
 	public var borderThickness:BorderThickness;
+
+	// this way is probably better 
+	public var sliceTopLeft:Point;
+	public var sliceBottomRight:Point;
 
 	public function new(texture:Texture, width:Int, height:Int){
 		super();

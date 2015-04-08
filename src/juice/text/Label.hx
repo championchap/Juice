@@ -13,6 +13,8 @@ class Label extends Entity {
 	private var fontSize:String = "10pt";
 	private var colour:String = ColourTools.BLACK;
 
+	public var width(get, null):Float;
+
 	public function new(text:String) {
 		super();
 
@@ -29,9 +31,13 @@ class Label extends Entity {
 		Draw.fillText(
 			text, 
 			font, 
-			fontSize, 
+			fontSize,
 			position, 
 			colour
 		);
+	}
+
+	public function get_width():Float {
+		return Juice.canvasCTX.measureText(this.text).width;
 	}
 }
