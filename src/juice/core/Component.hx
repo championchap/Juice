@@ -6,7 +6,7 @@ import juice.geometry.Point;
 class Component
 {
 
-	public var entity:Entity;
+	public var entity:Entity; // parent entity 
 
 	public var position:Point = new Point();
 
