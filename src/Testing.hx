@@ -58,7 +58,7 @@ class Testing extends Scene
 		}
 
 		label.position.x = slice.position.x + (slice.width / 2) - (label.width / 2);
-		label.position.y = slice.position.y + 16;
+		label.position.y = slice.position.y + ((slice.borderThickness.top - label.height) / 0.75);
 
 		if(Juice.input.justPressed(Keys.F)) {
 			Juice.toggleFullScreen();

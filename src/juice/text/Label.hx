@@ -14,6 +14,7 @@ class Label extends Entity {
 	private var colour:String = ColourTools.BLACK;
 
 	public var width(get, null):Float;
+	public var height(get, null):Float;
 
 	public function new(text:String) {
 		super();
@@ -39,5 +40,10 @@ class Label extends Entity {
 
 	public function get_width():Float {
 		return Juice.canvasCTX.measureText(this.text).width;
+	}
+
+	public function get_height():Float {
+		// not exact, but a capital M is said to be a good approximation 
+		return Juice.canvasCTX.measureText("M").width;
 	}
 }
