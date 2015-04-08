@@ -15,11 +15,13 @@ import juice.utils.Pool;
 import juice.geometry.Point;
 import juice.Juice;
 import juice.graphics.NineSlice;
+import juice.text.Label;
 
 class Testing extends Scene
 {
 
 	private var slice:NineSlice;
+	private var label:Label;
 
 	public function new(){
 		super();
@@ -35,6 +37,12 @@ class Testing extends Scene
 
 		slice.width = 320;
 		slice.height = 160;
+
+		label = new juice.text.Label("Hello World");
+		add(label);
+
+		label.position.x = 100;
+		label.position.y = 100;
 	}
 
 	override public function start():Void {
@@ -48,6 +56,9 @@ class Testing extends Scene
 			slice.position.x = Juice.input.mouse.x - (slice.width / 2);
 			slice.position.y = Juice.input.mouse.y - (slice.borderThickness.top / 2);
 		}
+
+		label.position.x = slice.position.x + 6;
+		label.position.y = slice.position.y + 16;
 
 		if(Juice.input.justPressed(Keys.F)) {
 			Juice.toggleFullScreen();

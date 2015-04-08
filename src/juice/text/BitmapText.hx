@@ -1,4 +1,4 @@
-package juice.graphics;
+package juice.text;
 
 import juice.graphics.Texture;
 import juice.geometry.Point;
